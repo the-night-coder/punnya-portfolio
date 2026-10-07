@@ -2304,6 +2304,72 @@
                 font-size: 0.68rem !important;
             }
 
+            /* Career Roadmap Mobile Responsive Layout */
+            .roadmap-section {
+                padding: 3.5rem 0 !important;
+            }
+            .roadmap-flow-wrapper {
+                padding: 1.5rem 0 1rem 0 !important;
+            }
+            .roadmap-flow-wrapper::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                bottom: 8px;
+                left: 22px;
+                width: 2px;
+                background: rgba(45, 79, 86, 0.15);
+                border-radius: var(--radius-full);
+            }
+            .roadmap-svg-canvas, .roadmap-glow-head {
+                display: none !important;
+            }
+            .roadmap-item {
+                display: block !important;
+                position: relative !important;
+                margin-bottom: 1.5rem !important;
+                padding-left: 54px !important;
+            }
+            .roadmap-pin {
+                left: 22px !important;
+                top: 24px !important;
+                transform: translate(-50%, 0) !important;
+                width: 34px !important;
+                height: 34px !important;
+                font-size: 0.95rem !important;
+                border-width: 2px !important;
+            }
+            .roadmap-item:nth-child(odd) .roadmap-card-box,
+            .roadmap-item:nth-child(even) .roadmap-card-box {
+                width: 100% !important;
+                margin: 0 !important;
+                text-align: left !important;
+                padding: 1.15rem 1rem !important;
+                border-radius: 16px !important;
+            }
+            .roadmap-date-pill {
+                font-size: 0.72rem !important;
+                padding: 0.2rem 0.6rem !important;
+                margin-bottom: 0.35rem !important;
+            }
+            .roadmap-card-title {
+                font-size: 1.08rem !important;
+                margin-bottom: 0.2rem !important;
+                line-height: 1.3 !important;
+            }
+            .roadmap-card-org {
+                font-size: 0.82rem !important;
+                margin-bottom: 0.45rem !important;
+            }
+            .roadmap-card-desc {
+                font-size: 0.825rem !important;
+                line-height: 1.45 !important;
+                margin-bottom: 0.55rem !important;
+            }
+            .roadmap-expand-btn {
+                font-size: 0.78rem !important;
+            }
+
             /* Work Experience */
             .exp-grid {
                 gap: 1.15rem !important;
@@ -2692,28 +2758,28 @@
 
         .intro-actions {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 0.65rem;
+            margin-top: 1.5rem;
             will-change: transform, opacity;
         }
         .intro-enter-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.65rem;
-            padding: 0.8rem 1.85rem;
-            background: rgba(250, 247, 242, 0.16);
-            border: 1px solid rgba(250, 247, 242, 0.4);
+            gap: 0.5rem;
+            padding: 0.65rem 1.65rem;
+            background: rgba(250, 247, 242, 0.12);
+            border: 1px solid rgba(250, 247, 242, 0.35);
             border-radius: var(--radius-full);
             color: #FAF7F2;
             font-family: var(--font-sans);
-            font-size: 0.825rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             cursor: pointer;
             backdrop-filter: blur(16px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(196, 147, 106, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .intro-enter-btn:hover {
@@ -2721,13 +2787,13 @@
             border-color: var(--ginkgo-terracotta);
             color: #FAF7F2;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(196, 147, 106, 0.55);
+            box-shadow: 0 8px 25px rgba(196, 147, 106, 0.5);
         }
         .intro-enter-btn i {
             transition: transform 0.3s ease;
         }
         .intro-enter-btn:hover i {
-            transform: translateY(3px);
+            transform: translateX(3px);
         }
         .intro-tip {
             font-size: 0.72rem;
@@ -3019,10 +3085,10 @@
             .roadmap-mobile-fill {
                 display: block;
                 position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 24px;
-                width: 3px;
+                top: 8px;
+                bottom: 8px;
+                left: 22px;
+                width: 2px;
                 border-radius: var(--radius-full);
                 background: linear-gradient(180deg, var(--ginkgo-sage), var(--ginkgo-terracotta), var(--ginkgo-chestnut));
             }
@@ -3082,27 +3148,17 @@
         <div class="intro-accent-circle" aria-hidden="true"></div>
         
         <div class="intro-content">
-            <div class="intro-pill" id="intro-pill">
-                <span class="intro-pill-dot"></span>
-                <span id="intro-pill-text">Available for Opportunities · Class of 2025</span>
-            </div>
-
             <div class="intro-name-wrap">
                 <div class="intro-name" id="intro-interactive-name" aria-label="Punnya.">
                     <span class="intro-char">P</span><span class="intro-char">u</span><span class="intro-char">n</span><span class="intro-char">n</span><span class="intro-char">y</span><span class="intro-char">a</span><span class="intro-char intro-char-dot">.</span>
                 </div>
             </div>
 
-            <div class="intro-sub-wrap">
-                <div class="intro-sub" id="intro-sub-text">HR Strategist × Brand Storyteller</div>
-            </div>
-
             <div class="intro-actions" id="intro-actions">
-                <button class="intro-enter-btn" id="intro-enter-btn" type="button" aria-label="Explore Portfolio">
-                    <span>Explore Portfolio</span>
-                    <i class="ri-arrow-down-line"></i>
+                <button class="intro-enter-btn" id="intro-enter-btn" type="button" aria-label="Enter Portfolio">
+                    <span>Enter</span>
+                    <i class="ri-arrow-right-line"></i>
                 </button>
-                <p class="intro-tip" id="intro-tip-text">Click anywhere or scroll to enter</p>
             </div>
         </div>
     </div>
@@ -3134,6 +3190,7 @@
 
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#skills" class="nav-link">Skills & Tools</a></li>
@@ -3168,6 +3225,7 @@
             </div>
             <ul class="drawer-links" id="drawer-links">
                 <li><a href="#about">About <i class="ri-arrow-right-s-line"></i></a></li>
+                <li><a href="#roadmap">Career Roadmap <i class="ri-arrow-right-s-line"></i></a></li>
                 <li><a href="#experience">Work Experience <i class="ri-arrow-right-s-line"></i></a></li>
                 <li><a href="#education">Education History <i class="ri-arrow-right-s-line"></i></a></li>
                 <li><a href="#skills">Skills & Tools <i class="ri-arrow-right-s-line"></i></a></li>
@@ -3355,7 +3413,54 @@
         </section>
 
         <!-- ==========================================================================
-             3. WORK EXPERIENCE SECTION
+             3. CAREER ROADMAP (WINDING SPINE CENTREPIECE)
+             ========================================================================== -->
+        <section class="roadmap-section" id="roadmap" aria-label="Career Roadmap">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow"><i class="ri-route-line"></i> Journey & Milestones</span>
+                    <h2 class="section-title">Career Roadmap</h2>
+                    <p class="section-description">A chronological journey through academic milestones, internships, and upcoming career horizons.</p>
+                </div>
+
+                <div class="roadmap-flow-wrapper">
+                    <!-- SVG Winding Curved Spine Canvas (Desktop) -->
+                    <svg class="roadmap-svg-canvas" viewBox="0 0 960 1450" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="roadmapPathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#547A6E" />
+                                <stop offset="35%" stop-color="#2D4F56" />
+                                <stop offset="70%" stop-color="#C4936A" />
+                                <stop offset="100%" stop-color="#6E4E3D" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Background dashed path -->
+                        <path id="roadmap-bg-path" 
+                              d="M 480 30 Q 580 120 480 210 Q 380 300 480 390 Q 580 480 480 570 Q 380 660 480 750 Q 580 840 480 930 Q 380 1020 480 1110 Q 580 1200 480 1400" 
+                              stroke="rgba(45, 79, 86, 0.2)" 
+                              stroke-width="4" 
+                              stroke-dasharray="8 8" 
+                              stroke-linecap="round" />
+                        <!-- Foreground active path drawn on scroll -->
+                        <path id="roadmap-active-path" 
+                              d="M 480 30 Q 580 120 480 210 Q 380 300 480 390 Q 580 480 480 570 Q 380 660 480 750 Q 580 840 480 930 Q 380 1020 480 1110 Q 580 1200 480 1400" 
+                              stroke="url(#roadmapPathGrad)" 
+                              stroke-width="5" 
+                              stroke-linecap="round" />
+                    </svg>
+
+                    <!-- Travelling Glowing Milestone Marker Head -->
+                    <div class="roadmap-glow-head" id="roadmap-glow-head"></div>
+
+                    <div id="roadmap-items-container">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             4. WORK EXPERIENCE SECTION
              ========================================================================= -->
         <section id="experience" aria-label="Work Experience">
             <div class="container">
@@ -3556,6 +3661,7 @@
 
                 <ul class="footer-nav">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills & Tools</a></li>
@@ -3620,10 +3726,7 @@
   },
   "intro": {
     "name": "Punnya.",
-    "sub": "HR Operations × Brand Strategist",
-    "badge": "Available for Opportunities · Class of 2025",
-    "enterBtn": "Explore Portfolio",
-    "helperTip": "Click anywhere, scroll, or press Space to enter"
+    "enterBtn": "Enter"
   },
   "recruiterStrip": [
     {
@@ -3698,6 +3801,86 @@
       ]
     }
   },
+  "roadmap": [
+    {
+      "id": "mba",
+      "date": "2023 – 2025",
+      "category": "both",
+      "type": "education",
+      "icon": "ri-graduation-cap-fill",
+      "title": "Master of Business Administration (MBA)",
+      "org": "Dhanalakshmi Srinivasan College of Engineering",
+      "location": "Tamil Nadu, India",
+      "summary": "Dual specialization in Human Resources and Marketing, focusing on workforce dynamics and brand strategy.",
+      "details": "Coursework spanning talent acquisition, employee relations, recruitment strategies, consumer psychology, market research, and corporate communications.",
+      "highlight": true
+    },
+    {
+      "id": "ulccs",
+      "date": "Summer 2024 (1 Month)",
+      "category": "hr",
+      "type": "experience",
+      "icon": "ri-briefcase-4-fill",
+      "title": "HR Intern (Summer Internship)",
+      "org": "ULCCS Ltd (Uralungal Labour Contract Co-Operative Society)",
+      "location": "Calicut, Kerala, India",
+      "summary": "Facilitated employee onboarding, verified personnel records, and drafted structured employee training modules.",
+      "details": "Assisted in maintaining accurate documentation across 100+ personnel files, compiled employee engagement materials, reconciled attendance records, and coordinated staff notices.",
+      "highlight": false
+    },
+    {
+      "id": "hedge",
+      "date": "2024 (3 Months)",
+      "category": "hr",
+      "type": "experience",
+      "icon": "ri-briefcase-4-fill",
+      "title": "Human Resources Intern",
+      "org": "Hedge Equities",
+      "location": "Calicut, Kerala, India",
+      "summary": "Screened candidate resumes, scheduled interviews, and tracked employee appraisal timelines.",
+      "details": "Coordinated interview schedules, maintained confidential HR records, monitored performance appraisal cycles, and assisted with internal team-building initiatives.",
+      "highlight": false
+    },
+    {
+      "id": "hilite",
+      "date": "2023 (15 Days)",
+      "category": "marketing",
+      "type": "experience",
+      "icon": "ri-store-3-fill",
+      "title": "Sales & Client Relations Intern",
+      "org": "Hilite Business Park",
+      "location": "Calicut, Kerala, India",
+      "summary": "Engaged prospective commercial clients, conducted project walkthroughs, and gathered feedback.",
+      "details": "Assisted senior sales leads with corporate inquiries, demonstrated commercial spaces, and evaluated client requirements using structured feedback questionnaires.",
+      "highlight": false
+    },
+    {
+      "id": "ba",
+      "date": "2020 – 2023",
+      "category": "both",
+      "type": "education",
+      "icon": "ri-book-2-fill",
+      "title": "Bachelor of Arts in English (B.A.)",
+      "org": "Sree Narayana College, Keezhal",
+      "location": "Kerala, India",
+      "summary": "Academic foundation in business communication, analytical writing, rhetoric, and critical reasoning.",
+      "details": "Developed strong written and verbal presentation skills, essential for corporate HR correspondence and brand storytelling.",
+      "highlight": false
+    },
+    {
+      "id": "whatsnext",
+      "date": "Class of 2025+",
+      "category": "both",
+      "type": "future",
+      "icon": "ri-rocket-2-fill",
+      "title": "Targeted Career Horizon",
+      "org": "Human Resources & Brand Marketing Roles",
+      "location": "Open to Relocation",
+      "summary": "Seeking opportunities where people operations and brand storytelling drive measurable organizational value.",
+      "details": "Targeting roles in HR Generalist, Talent Acquisition, People Operations, Employer Branding, and Marketing Strategy.",
+      "highlight": true
+    }
+  ],
   "experience": [
     {
       "id": "exp-hedge",
@@ -3975,6 +4158,31 @@
                         </div>
                     `).join("");
                 }
+            }
+
+            // Career Roadmap Milestones
+            const roadmapContainer = document.getElementById("roadmap-items-container");
+            const roadmapData = data.roadmap || PROFILE_DATA.roadmap;
+            if (roadmapContainer && roadmapData) {
+                roadmapContainer.innerHTML = roadmapData.map((item, index) => `
+                    <div class="roadmap-item ${item.highlight ? 'active' : ''} ${item.type === 'future' ? 'roadmap-next' : ''}" 
+                         data-category="${item.category}" 
+                         data-index="${index}">
+                        <div class="roadmap-pin"><i class="${item.icon}"></i></div>
+                        <div class="roadmap-card-box" onclick="toggleRoadmapItem(this)">
+                            <span class="roadmap-date-pill">${item.date}</span>
+                            <h3 class="roadmap-card-title">${item.title}</h3>
+                            <p class="roadmap-card-org"><i class="ri-building-2-line"></i> ${item.org} ${item.location ? `· ${item.location}` : ''}</p>
+                            <p class="roadmap-card-desc">${item.summary}</p>
+                            <button class="roadmap-expand-btn" type="button" aria-label="Expand details">
+                                <span>Details</span> <i class="ri-arrow-down-s-line"></i>
+                            </button>
+                            <div class="roadmap-details-drawer">
+                                <p style="font-size:0.875rem; color:var(--text-soft); line-height:1.5;">${item.details}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
             }
 
             // 4. Work Experience
@@ -4540,11 +4748,11 @@
             if (finePointer) setupCursor();
 
             runIntro(heroTl, singleColumn ? null : visualTl, () => {
-                // Stacked layouts: reveal the portrait when it scrolls into view
+                // Stacked layouts: reveal the portrait only when user actively scrolls down to it
                 if (singleColumn) {
                     ScrollTrigger.create({
                         trigger: '.hero-visual-wrap',
-                        start: 'top 88%',
+                        start: 'top 55%',
                         once: true,
                         onEnter: () => visualTl.play()
                     });
@@ -4585,15 +4793,9 @@
                 .fromTo(nameSpans, 
                     { yPercent: 70, rotate: (i) => (i % 2 === 0 ? 5 : -5), opacity: 0, scale: 0.9 }, 
                     { yPercent: 0, rotate: 0, opacity: 1, scale: 1, duration: 0.85, stagger: 0.035, ease: 'back.out(1.5)' }, 0.05)
-                .fromTo('#intro-pill', 
-                    { y: -16, opacity: 0 }, 
-                    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.08)
-                .fromTo('#intro-sub-text', 
-                    { y: 16, opacity: 0 }, 
-                    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.12)
                 .fromTo('#intro-actions', 
-                    { y: 20, opacity: 0 }, 
-                    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.18)
+                    { y: 16, opacity: 0 }, 
+                    { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.15)
                 .fromTo('.intro-accent-circle', 
                     { scale: 0.65, opacity: 0 }, 
                     { scale: 1, opacity: 0.7, duration: 1.1, ease: 'power2.out' }, 0);
@@ -4690,7 +4892,7 @@
                         ease: 'power3.in' 
                     }, 0)
                     // Action details fade down
-                    .to(['#intro-pill', '#intro-sub-text', '#intro-actions', spotlight, '.intro-accent-circle'], { 
+                    .to(['#intro-actions', spotlight, '.intro-accent-circle'], { 
                         y: 30, 
                         opacity: 0, 
                         duration: 0.4, 

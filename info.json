@@ -26,10 +26,7 @@
   },
   "intro": {
     "name": "Punnya.",
-    "sub": "HR Operations × Brand Strategist",
-    "badge": "Available for Opportunities · Class of 2025",
-    "enterBtn": "Explore Portfolio",
-    "helperTip": "Click anywhere, scroll, or press Space to enter"
+    "enterBtn": "Enter"
   },
   "recruiterStrip": [
     {
@@ -104,6 +101,86 @@
       ]
     }
   },
+  "roadmap": [
+    {
+      "id": "mba",
+      "date": "2023 – 2025",
+      "category": "both",
+      "type": "education",
+      "icon": "ri-graduation-cap-fill",
+      "title": "Master of Business Administration (MBA)",
+      "org": "Dhanalakshmi Srinivasan College of Engineering",
+      "location": "Tamil Nadu, India",
+      "summary": "Dual specialization in Human Resources and Marketing, focusing on workforce dynamics and brand strategy.",
+      "details": "Coursework spanning talent acquisition, employee relations, recruitment strategies, consumer psychology, market research, and corporate communications.",
+      "highlight": true
+    },
+    {
+      "id": "ulccs",
+      "date": "Summer 2024 (1 Month)",
+      "category": "hr",
+      "type": "experience",
+      "icon": "ri-briefcase-4-fill",
+      "title": "HR Intern (Summer Internship)",
+      "org": "ULCCS Ltd (Uralungal Labour Contract Co-Operative Society)",
+      "location": "Calicut, Kerala, India",
+      "summary": "Facilitated employee onboarding, verified personnel records, and drafted structured employee training modules.",
+      "details": "Assisted in maintaining accurate documentation across 100+ personnel files, compiled employee engagement materials, reconciled attendance records, and coordinated staff notices.",
+      "highlight": false
+    },
+    {
+      "id": "hedge",
+      "date": "2024 (3 Months)",
+      "category": "hr",
+      "type": "experience",
+      "icon": "ri-briefcase-4-fill",
+      "title": "Human Resources Intern",
+      "org": "Hedge Equities",
+      "location": "Calicut, Kerala, India",
+      "summary": "Screened candidate resumes, scheduled interviews, and tracked employee appraisal timelines.",
+      "details": "Coordinated interview schedules, maintained confidential HR records, monitored performance appraisal cycles, and assisted with internal team-building initiatives.",
+      "highlight": false
+    },
+    {
+      "id": "hilite",
+      "date": "2023 (15 Days)",
+      "category": "marketing",
+      "type": "experience",
+      "icon": "ri-store-3-fill",
+      "title": "Sales & Client Relations Intern",
+      "org": "Hilite Business Park",
+      "location": "Calicut, Kerala, India",
+      "summary": "Engaged prospective commercial clients, conducted project walkthroughs, and gathered feedback.",
+      "details": "Assisted senior sales leads with corporate inquiries, demonstrated commercial spaces, and evaluated client requirements using structured feedback questionnaires.",
+      "highlight": false
+    },
+    {
+      "id": "ba",
+      "date": "2020 – 2023",
+      "category": "both",
+      "type": "education",
+      "icon": "ri-book-2-fill",
+      "title": "Bachelor of Arts in English (B.A.)",
+      "org": "Sree Narayana College, Keezhal",
+      "location": "Kerala, India",
+      "summary": "Academic foundation in business communication, analytical writing, rhetoric, and critical reasoning.",
+      "details": "Developed strong written and verbal presentation skills, essential for corporate HR correspondence and brand storytelling.",
+      "highlight": false
+    },
+    {
+      "id": "whatsnext",
+      "date": "Class of 2025+",
+      "category": "both",
+      "type": "future",
+      "icon": "ri-rocket-2-fill",
+      "title": "Targeted Career Horizon",
+      "org": "Human Resources & Brand Marketing Roles",
+      "location": "Open to Relocation",
+      "summary": "Seeking opportunities where people operations and brand storytelling drive measurable organizational value.",
+      "details": "Targeting roles in HR Generalist, Talent Acquisition, People Operations, Employer Branding, and Marketing Strategy.",
+      "highlight": true
+    }
+  ],
   "experience": [
     {
       "id": "exp-hedge",
