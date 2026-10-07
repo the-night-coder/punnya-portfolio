@@ -4169,6 +4169,9 @@
                             <div class="stat-sub">${s.sub}</div>
                         </div>
                     `).join("");
+                    if (typeof window.setupStatCounters === "function") {
+                        window.setupStatCounters();
+                    }
                 }
             }
 
@@ -4344,6 +4347,54 @@
             }
         }
 
+        // Animated Stat Counters Controller
+        function setupStatCounters() {
+            if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+            const statsGrid = document.getElementById("stats-grid");
+            if (!statsGrid) return;
+            const counters = statsGrid.querySelectorAll(".stat-counter");
+            if (!counters.length) return;
+
+            const existingTrigger = ScrollTrigger.getById("stats-counter-trigger");
+            if (existingTrigger) existingTrigger.kill();
+
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (prefersReducedMotion) {
+                counters.forEach(counter => {
+                    const target = counter.getAttribute("data-target");
+                    if (target) counter.textContent = target;
+                });
+                return;
+            }
+
+            ScrollTrigger.create({
+                id: "stats-counter-trigger",
+                trigger: statsGrid,
+                start: "top 88%",
+                once: true,
+                onEnter: () => {
+                    counters.forEach((counter, idx) => {
+                        const target = parseInt(counter.getAttribute("data-target"), 10);
+                        if (isNaN(target)) return;
+                        const proxy = { val: 0 };
+                        gsap.to(proxy, {
+                            val: target,
+                            duration: target > 1000 ? 1.8 : 1.2,
+                            delay: idx * 0.1,
+                            ease: "power2.out",
+                            onUpdate: () => {
+                                counter.textContent = Math.round(proxy.val).toString();
+                            },
+                            onComplete: () => {
+                                counter.textContent = target.toString();
+                            }
+                        });
+                    });
+                }
+            });
+        }
+        window.setupStatCounters = setupStatCounters;
+
         document.addEventListener("DOMContentLoaded", () => {
             // Initial render with embedded profile data
             populateAllContent(PROFILE_DATA);
@@ -4360,6 +4411,7 @@
                         populateAllContent(PROFILE_DATA);
                         const activeLens = document.querySelector('.lens-btn.active')?.dataset.lens || 'all';
                         applyLensFilter(activeLens);
+                        setupStatCounters();
                         if (window.ScrollTrigger) ScrollTrigger.refresh();
                     }
                 })
@@ -4536,22 +4588,7 @@
             drawerLinks.forEach(link => link.addEventListener("click", () => toggleDrawer(false)));
 
             // Animated Stat Counters
-            document.querySelectorAll(".stat-counter").forEach(counter => {
-                ScrollTrigger.create({
-                    trigger: counter,
-                    start: "top 88%",
-                    once: true,
-                    onEnter: () => {
-                        const target = +counter.getAttribute("data-target");
-                        gsap.to(counter, {
-                            innerHTML: target,
-                            duration: 1.8,
-                            ease: "power2.out",
-                            snap: { innerHTML: 1 }
-                        });
-                    }
-                });
-            });
+            setupStatCounters();
 
             // Winding SVG Roadmap Curve Drawing on Scroll & Travelling Glow Head (Desktop view)
             const roadmapActivePath = document.getElementById("roadmap-active-path");
