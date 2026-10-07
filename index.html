@@ -1171,6 +1171,7 @@
         }
 
         .roadmap-item.active .roadmap-pin {
+            animation: pinPulse 2.4s infinite ease-in-out;
             background: var(--ginkgo-terracotta);
             color: #FFFFFF;
             border-color: #FFFFFF;
@@ -1255,6 +1256,7 @@
         }
 
         .roadmap-item.roadmap-next .roadmap-pin {
+            animation: pinPulse 2.4s infinite ease-in-out;
             background: linear-gradient(135deg, var(--ginkgo-sage), var(--ginkgo-terracotta));
             color: #FFFFFF;
         }
@@ -2082,6 +2084,15 @@
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+        }
+
+        @keyframes pinPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 6px rgba(196, 147, 106, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(196, 147, 106, 0.35);
             }
         }
 
@@ -3080,6 +3091,7 @@
 
         /* ---------- Mobile Roadmap Progress Line ---------- */
         .roadmap-mobile-fill { display: none; }
+
         @media (max-width: 768px) {
             .has-roadmap-fill.roadmap-flow-wrapper::before { background: rgba(45, 79, 86, 0.14); }
             .roadmap-mobile-fill {
