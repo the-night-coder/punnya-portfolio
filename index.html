@@ -236,6 +236,7 @@
             color: var(--text-main);
             overflow-x: hidden;
             max-width: 100vw;
+            scroll-snap-type: y mandatory;
         }
 
         body {
@@ -715,6 +716,7 @@
             min-height: calc(100vh - 80px);
             display: flex;
             align-items: center;
+            scroll-snap-align: start;
         }
 
         .hero-grid {
@@ -2686,7 +2688,9 @@
             --hero-x-name-reveal-ms: 540ms;
             --hero-x-letter-stagger: 52ms;
             /* === FX: page-load-pacing END === */
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 10;
             display: grid;
             min-height: 100svh;
             height: 100svh;
@@ -2695,6 +2699,21 @@
             isolation: isolate;
             background: var(--bg-canvas);
             touch-action: pan-y;
+            scroll-snap-align: start;
+            animation: introReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes introReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.98) translateY(10px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0);
+            }
         }
 
         .hero-x::before {
@@ -4870,6 +4889,24 @@
 
             // Animated Stat Counters
             setupStatCounters();
+            /* ==========================================================================
+               AUTO-SCROLL TO PROFILE PAGE
+               ========================================================================== */
+            let hasScrolled = false;
+            const scrollListener = () => {
+                hasScrolled = true;
+                window.removeEventListener('scroll', scrollListener);
+            };
+            window.addEventListener('scroll', scrollListener, { passive: true });
+            
+            setTimeout(() => {
+                if (!hasScrolled && window.scrollY < 50) {
+                    const heroSection = document.getElementById('hero');
+                    if (heroSection) {
+                        heroSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }, 5500); // Wait for intro animations to finish before scrolling
         });
     </script>
 
@@ -5602,14 +5639,23 @@
                 state.glow += (tg - state.glow) * config.spring;
 
                 letter.style.transform = `translate3d(${state.x.toFixed(2)}px, ${state.y.toFixed(2)}px, 0) scale(${state.scale.toFixed(3)}) rotate(${state.r.toFixed(2)}deg)`;
-                letter.style.fontVariationSettings = `'wght' ${Math.round(state.weight)}, 'opsz' 144`;
+                letter.style.fontVariationSettings = `'wght' ${Math.round(state.weight)}`;
                 letter.style.textShadow = state.glow > 0.025 ? `0 0 ${Math.round(8 + state.glow * 22)}px rgba(196, 147, 106, ${Math.min(0.56, state.glow * 0.56)})` : '';
                 motionIsSettling ||= Math.abs(state.x - tx) > 0.1 || Math.abs(state.y - ty) > 0.1 || Math.abs(state.scale - ts) > 0.002;
             });
 
             tilt.x += (tilt.tx - tilt.x) * 0.08;
             tilt.y += (tilt.ty - tilt.y) * 0.08;
-            inner.style.transform = `translate3d(${tilt.x.toFixed(2)}px, ${tilt.y.toFixed(2)}px, 0)`;
+
+            const scrollY = window.scrollY;
+            const scrollProgress = clamp(scrollY / (window.innerHeight * 0.4), 0, 1);
+            const scrollScale = 1 - (scrollProgress * 0.5); 
+            const scrollTranslateY = scrollProgress * -150;
+            const scrollOpacity = 1 - Math.pow(scrollProgress, 1.2);
+            
+            inner.style.transform = `translate3d(${tilt.x.toFixed(2)}px, ${(tilt.y + scrollTranslateY).toFixed(2)}px, 0) scale(${scrollScale.toFixed(3)})`;
+            hero.style.opacity = scrollOpacity.toFixed(3);
+            hero.style.pointerEvents = scrollProgress > 0.8 ? 'none' : 'auto';
 
             if (spotlight) {
                 const px = hasPointer ? pointer.x - heroRect.left : heroRect.width / 2;
@@ -5628,6 +5674,9 @@
         hero.addEventListener('pointermove', updatePointer, { passive: true });
         hero.addEventListener('pointerleave', () => { pointer = null; scheduleFrame(); }, { passive: true });
         hero.addEventListener('pointercancel', () => { pointer = null; scheduleFrame(); }, { passive: true });
+        window.addEventListener('scroll', () => {
+            if (heroVisible && !reduceMotion) scheduleFrame();
+        }, { passive: true });
 
         function handleOrientation(event) {
             const x = clamp(event.gamma || 0, -20, 20);
