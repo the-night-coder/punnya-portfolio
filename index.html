@@ -1062,204 +1062,263 @@
             color: var(--text-main);
         }
 
-        /* ==========================================================================
-           8. CAREER ROADMAP (WINDING SVG PATH CENTREPIECE)
-           ========================================================================== */
-        .roadmap-section {
+        /* === ROADMAP START ===
+           Tweak: --road-x-accent, --road-x-line, --road-x-speed, --road-x-pop-distance
+           Mobile-first, dependency-free journey path. */
+        .road-x-section {
+            --road-x-accent: var(--ginkgo-terracotta);
+            --road-x-line: var(--ginkgo-spruce);
+            --road-x-speed: 520ms;
+            --road-x-pop-distance: 26px;
             background: linear-gradient(180deg, transparent, rgba(212, 200, 181, 0.22), transparent);
-            padding: 7rem 0;
-            position: relative;
-            overflow: hidden;
+            overflow: clip;
         }
 
-        .roadmap-flow-wrapper {
+        .road-x-wrapper {
             position: relative;
             max-width: 960px;
             margin: 0 auto;
-            padding: 2.5rem 0;
+            padding: 1rem 0;
+            overflow: hidden;
         }
 
-        /* Desktop Winding Curved SVG Path */
-        .roadmap-svg-canvas {
+        .road-x-svg {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+            z-index: 0;
             width: 100%;
             height: 100%;
+            overflow: visible;
             pointer-events: none;
+        }
+
+        .road-x-track,
+        .road-x-progress {
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .road-x-track {
+            stroke: color-mix(in srgb, var(--road-x-line) 23%, transparent);
+            stroke-width: 3;
+            stroke-dasharray: 3 10;
+        }
+
+        .road-x-progress {
+            stroke: url(#road-x-gradient);
+            stroke-width: 5;
+            filter: drop-shadow(0 0 5px rgba(196, 147, 106, 0.42));
+            transition: stroke-dashoffset 80ms linear;
+        }
+
+        .road-x-dot {
+            position: absolute;
             z-index: 1;
-        }
-
-        .roadmap-glow-head {
-            position: absolute;
-            width: 22px;
-            height: 22px;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 4px solid #fff;
             border-radius: 50%;
-            background: #FFFFFF;
-            border: 4px solid var(--ginkgo-terracotta);
-            box-shadow: 0 0 16px rgba(196, 147, 106, 0.6), 0 0 30px rgba(84, 122, 110, 0.35);
-            z-index: 6;
-            transform: translate(-50%, -50%);
-            transition: left 0.1s linear, top 0.1s linear;
+            background: var(--road-x-accent);
+            box-shadow: 0 0 0 7px rgba(196, 147, 106, 0.16), 0 0 24px rgba(196, 147, 106, 0.68);
             pointer-events: none;
+            will-change: transform;
         }
 
-        .roadmap-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 4.5rem;
+        .road-x-list {
             position: relative;
-            width: 100%;
-            z-index: 3;
-            transition: var(--transition-smooth);
+            z-index: 2;
+            display: grid;
+            gap: clamp(1.5rem, 4vw, 4rem);
         }
 
-        .roadmap-item:last-child {
-            margin-bottom: 0;
+        .road-x-item {
+            display: grid;
+            grid-template-columns: 3.5rem minmax(0, 1fr);
+            align-items: start;
+            min-width: 0;
+            opacity: 0;
+            transform: translate3d(0, var(--road-x-pop-distance), 0);
+            transition: transform var(--road-x-speed) cubic-bezier(0.16, 1, 0.3, 1) var(--road-x-enter-delay, 0ms), opacity var(--road-x-speed) ease var(--road-x-enter-delay, 0ms);
         }
 
-        /* Alternating Card Placements */
-        .roadmap-item:nth-child(odd) .roadmap-card-box {
-            margin-right: auto;
-            margin-left: 0;
-            text-align: right;
+        .road-x-item.road-x-is-visible,
+        .road-x-item.road-x-is-passed {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
         }
 
-        .roadmap-item:nth-child(even) .roadmap-card-box {
-            margin-left: auto;
-            margin-right: 0;
-            text-align: left;
-        }
-
-        .roadmap-card-box {
-            width: calc(50% - 50px);
-            background: var(--bg-surface);
-            padding: 1.85rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(45, 79, 86, 0.14);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-        }
-
-        .roadmap-card-box:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(196, 147, 106, 0.4);
-        }
-
-        .roadmap-pin {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+        .road-x-node {
+            display: grid;
+            place-items: center;
+            grid-column: 1;
             width: 44px;
+            min-width: 44px;
             height: 44px;
+            margin-top: 1.15rem;
+            border: 2px solid color-mix(in srgb, var(--road-x-line) 28%, white);
             border-radius: 50%;
             background: var(--bg-surface);
-            border: 2px solid rgba(45, 79, 86, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.15rem;
-            color: var(--ginkgo-spruce);
-            z-index: 10;
-            box-shadow: 0 4px 14px rgba(15, 44, 61, 0.08);
-            transition: var(--transition-smooth);
+            color: var(--road-x-line);
+            box-shadow: 0 6px 18px rgba(15, 44, 61, 0.11);
+            opacity: 0.45;
+            transform: scale(0.72);
+            transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease, background-color 260ms ease, color 260ms ease;
         }
 
-        .roadmap-item.active .roadmap-pin {
-            animation: pinPulse 2.4s infinite ease-in-out;
-            background: var(--ginkgo-terracotta);
-            color: #FFFFFF;
-            border-color: #FFFFFF;
-            box-shadow: 0 0 0 6px rgba(196, 147, 106, 0.2);
+        .road-x-item.road-x-is-visible .road-x-node { transform: scale(1); }
+
+        .road-x-item.road-x-is-passed .road-x-node {
+            border-color: #fff;
+            background: var(--road-x-accent);
+            color: #fff;
+            opacity: 1;
+            box-shadow: 0 0 0 6px rgba(196, 147, 106, 0.16), 0 9px 22px rgba(15, 44, 61, 0.14);
         }
 
-        .roadmap-date-pill {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--ginkgo-chestnut);
-            background: var(--accent-tint);
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-full);
-            margin-bottom: 0.6rem;
+        .road-x-card {
+            grid-column: 2;
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid rgba(45, 79, 86, 0.14);
+            border-radius: 1.25rem;
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-card);
+            transition: transform 260ms var(--ease-out), border-color 260ms ease, box-shadow 260ms ease;
         }
 
-        .roadmap-card-title {
-            font-family: var(--font-serif);
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
-            color: var(--text-main);
+        .road-x-item.road-x-next .road-x-card {
+            border-color: color-mix(in srgb, var(--road-x-accent) 72%, white);
+            background: linear-gradient(135deg, #fff, #faf5ed);
         }
 
-        .roadmap-card-org {
-            font-size: 0.925rem;
-            color: var(--text-soft);
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .roadmap-card-desc {
-            font-size: 0.9rem;
-            color: var(--text-soft);
-            line-height: 1.55;
-            margin-bottom: 0.85rem;
-        }
-
-        .roadmap-expand-btn {
+        .road-x-trigger {
+            display: block;
+            width: 100%;
+            min-height: 44px;
+            padding: 1rem;
+            border: 0;
             background: transparent;
-            border: none;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
+            color: inherit;
+            font: inherit;
+            text-align: left;
             cursor: pointer;
+        }
+
+        .road-x-date {
             display: inline-flex;
+            margin-bottom: 0.5rem;
+            padding: 0.2rem 0.62rem;
+            border-radius: var(--radius-full);
+            background: var(--accent-tint);
+            color: var(--ginkgo-chestnut);
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .road-x-title {
+            display: block;
+            margin: 0 0 0.32rem;
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 4vw, 1.3rem);
+            line-height: 1.25;
+        }
+
+        .road-x-org,
+        .road-x-summary,
+        .road-x-detail-copy {
+            display: block;
+            margin: 0;
+            color: var(--text-soft);
+            font-size: max(0.875rem, 14px);
+            line-height: 1.55;
+        }
+
+        .road-x-org { margin-bottom: 0.55rem; font-weight: 600; }
+        .road-x-summary { margin-bottom: 0.72rem; }
+
+        .road-x-more {
+            display: inline-flex;
+            min-height: 24px;
             align-items: center;
             gap: 0.35rem;
-            padding: 0.25rem 0;
-            transition: var(--transition-fast);
+            color: var(--road-x-accent);
+            font-size: 0.82rem;
+            font-weight: 700;
         }
 
-        .roadmap-expand-btn:hover {
-            color: var(--accent-hover);
-            gap: 0.5rem;
+        .road-x-more i { transition: transform 260ms var(--ease-out); }
+        .road-x-item.road-x-is-open .road-x-more i { transform: rotate(180deg); }
+
+        /* Native grid interpolation gives an accordion without JS height reads. */
+        .road-x-details {
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transform: translate3d(0, -0.45rem, 0);
+            transition: grid-template-rows 320ms var(--ease-out), opacity 220ms ease, transform 320ms var(--ease-out);
         }
 
-        .roadmap-details-drawer {
-            max-height: 0;
+        .road-x-details-inner {
+            min-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s var(--ease-out);
+            margin: 0 1rem;
+        }
+
+        .road-x-item.road-x-is-open .road-x-details {
+            grid-template-rows: 1fr;
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .road-x-item.road-x-is-open .road-x-details-inner {
+            padding: 0.9rem 0 1rem;
             border-top: 1px dashed rgba(45, 79, 86, 0.18);
-            margin-top: 0.85rem;
-            padding-top: 0;
-            text-align: left;
         }
 
-        .roadmap-card-box.expanded .roadmap-details-drawer {
-            max-height: 250px;
-            padding-top: 0.85rem;
+        @media (hover: hover) and (pointer: fine) {
+            .road-x-card:hover {
+                border-color: color-mix(in srgb, var(--road-x-accent) 42%, white);
+                box-shadow: var(--shadow-hover);
+                transform: translate3d(0, -4px, 0);
+            }
         }
 
-        .roadmap-card-box.expanded .roadmap-expand-btn i {
-            transform: rotate(180deg);
+        @media (min-width: 768px) {
+            .road-x-wrapper { padding: 2rem 0; }
+            .road-x-list { gap: clamp(2.75rem, 5vw, 5.25rem); }
+            .road-x-item {
+                grid-template-columns: minmax(0, 1fr) 5.75rem minmax(0, 1fr);
+                min-height: 10rem;
+            }
+            .road-x-node { grid-column: 2; justify-self: center; margin-top: 1.55rem; }
+            .road-x-card { width: min(100%, 25rem); }
+            .road-x-item:nth-child(odd) .road-x-card { grid-column: 1; justify-self: end; }
+            .road-x-item:nth-child(even) .road-x-card { grid-column: 3; justify-self: start; }
+            .road-x-item:nth-child(odd) .road-x-trigger { text-align: right; }
+            .road-x-item:nth-child(odd) .road-x-more { justify-content: flex-end; }
+            .road-x-item:nth-child(odd) .road-x-details-inner { text-align: right; }
+            .road-x-date { font-size: 0.8rem; }
+            .road-x-trigger { padding: 1.35rem; }
+            .road-x-details-inner { margin: 0 1.35rem; }
         }
 
-        /* "What's Next" Career Objective Milestone */
-        .roadmap-item.roadmap-next .roadmap-card-box {
-            background: linear-gradient(135deg, #FFFFFF, #FAF5ED);
-            border: 2px solid var(--ginkgo-terracotta);
-            box-shadow: 0 10px 30px rgba(196, 147, 106, 0.15);
+        @media (prefers-reduced-motion: reduce) {
+            .road-x-item,
+            .road-x-node,
+            .road-x-card,
+            .road-x-details,
+            .road-x-more i { transition: none !important; }
+            .road-x-item { opacity: 1; transform: none; }
+            .road-x-node { opacity: 1; transform: none; }
+            .road-x-progress { stroke-dashoffset: 0 !important; }
+            .road-x-dot { display: none; }
         }
-
-        .roadmap-item.roadmap-next .roadmap-pin {
-            animation: pinPulse 2.4s infinite ease-in-out;
-            background: linear-gradient(135deg, var(--ginkgo-sage), var(--ginkgo-terracotta));
-            color: #FFFFFF;
-        }
+        /* === ROADMAP END === */
 
         /* ==========================================================================
            9. EDUCATION HISTORY SECTION (POLISHED & DISTINCT)
@@ -2581,8 +2640,6 @@
         /* ==========================================================================
            16. MOTION & CREATIVE LAYER
            ========================================================================== */
-        html.is-intro, html.is-intro body { overflow: hidden; }
-
         /* Lock CSS transitions while GSAP drives an element (prevents laggy double-easing) */
         .motion-lock .navbar, .motion-lock .btn, .motion-lock .lens-toggle-group,
         .is-revealing {
@@ -2590,236 +2647,157 @@
             animation: none !important;
         }
 
-        /* ---------- Opening Sequence (Interactive Intro) ---------- */
-        .intro {
-            position: fixed;
-            inset: 0;
-            z-index: 5000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FAF7F2;
-            cursor: pointer;
-            overflow: hidden;
-            user-select: none;
-            -webkit-user-select: none;
-            animation: introFailsafe 0.5s ease 10s forwards;
-        }
-        @keyframes introFailsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
-
-        .intro-panels {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .intro-panels .intro-panel-top,
-        .intro-panels .intro-panel-bottom {
-            flex: 1;
-            background: #0F2C3D;
+        /* === HERO START ===
+           Tweak: --hero-x-accent, --hero-x-spotlight-size, --hero-x-title-size,
+           --hero-x-scramble-ms and --hero-x-magnet-radius in the script below. */
+        .hero-x {
+            --hero-x-accent: var(--ginkgo-terracotta);
+            --hero-x-ink: var(--ginkgo-navy);
+            --hero-x-spotlight-size: clamp(24rem, 58vw, 52rem);
             position: relative;
+            display: grid;
+            min-height: 100svh;
+            height: 100svh;
+            place-items: center;
             overflow: hidden;
-            will-change: transform;
+            isolation: isolate;
+            background: var(--bg-canvas);
+            touch-action: pan-y;
         }
-        .intro-panels .intro-panel-top { transform-origin: top; }
-        .intro-panels .intro-panel-bottom { transform-origin: bottom; }
 
-        .intro-bg {
+        .hero-x::before {
             position: absolute;
             inset: 0;
-            background: #0F2C3D;
-            z-index: 1;
-            will-change: transform, opacity;
-            pointer-events: none;
+            z-index: -2;
+            content: '';
+            background: linear-gradient(135deg, rgba(84, 122, 110, 0.12), transparent 43%, rgba(196, 147, 106, 0.13));
         }
 
-        /* Ambient interactive flashlight spotlight */
-        .intro-spotlight {
+        .hero-x-spotlight {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: clamp(450px, 55vw, 800px);
-            height: clamp(450px, 55vw, 800px);
-            margin-left: max(-400px, -27.5vw);
-            margin-top: max(-400px, -27.5vw);
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: var(--hero-x-spotlight-size);
+            aspect-ratio: 1;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 147, 106, 0.35) 0%, rgba(196, 147, 106, 0.15) 45%, transparent 70%);
             pointer-events: none;
-            z-index: 2;
-            opacity: 0.85;
-            transition: opacity 0.4s ease;
-            mix-blend-mode: screen;
+            background: radial-gradient(circle, rgba(196, 147, 106, 0.34), rgba(166, 183, 161, 0.2) 36%, transparent 69%);
+            filter: blur(8px);
+            opacity: 0.9;
             will-change: transform;
         }
 
-        .intro-accent-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            width: clamp(280px, 50vw, 600px);
-            height: clamp(280px, 50vw, 600px);
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 147, 106, 0.5) 0%, rgba(84, 122, 110, 0.25) 50%, transparent 75%);
-            opacity: 0.8;
-            z-index: 2;
-            mix-blend-mode: screen;
-            filter: blur(55px);
-            pointer-events: none;
-            will-change: transform, opacity;
-        }
-
-        .intro-content {
-            position: relative;
-            z-index: 3;
+        .hero-x-inner {
             display: flex;
+            width: min(100%, 76rem);
+            min-width: 0;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            padding: clamp(5rem, 11vh, 8rem) 1rem 2rem;
+            color: var(--hero-x-ink);
             text-align: center;
-            padding: 1.5rem;
-            max-width: 900px;
-            width: 100%;
-            cursor: pointer;
+            will-change: transform;
         }
 
-        .intro-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.45rem 1.15rem;
-            background: rgba(250, 247, 242, 0.14);
-            border: 1px solid rgba(250, 247, 242, 0.3);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #FAF7F2;
-            margin-bottom: 1.25rem;
-            backdrop-filter: blur(14px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-            will-change: transform, opacity;
-            transition: all 0.3s ease;
-        }
-        .intro-pill:hover {
-            border-color: var(--ginkgo-terracotta);
-            background: rgba(196, 147, 106, 0.25);
-        }
-        .intro-pill-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #629683;
-            box-shadow: 0 0 10px #629683;
-            animation: pulseDot 2s ease infinite;
-        }
-
-        .intro-name-wrap {
-            overflow: visible;
-            margin-bottom: 0.75rem;
-            position: relative;
-        }
-        .intro-name {
+        .hero-x-name {
             display: flex;
+            max-width: 100%;
+            flex-wrap: wrap;
             justify-content: center;
-            font-family: var(--font-serif);
-            font-style: italic;
-            font-size: clamp(4rem, 11vw, 8.8rem);
-            line-height: 1.05;
-            color: var(--ginkgo-terracotta);
-            will-change: opacity, transform;
-            cursor: pointer;
-            letter-spacing: -0.01em;
-            text-shadow: 0 6px 35px rgba(0, 0, 0, 0.45);
-        }
-        .intro-name .intro-char {
-            display: inline-block;
-            position: relative;
-            transform-origin: center bottom;
-            transition: color 0.25s, text-shadow 0.25s;
-            font-variation-settings: 'wght' 400, 'opsz' 144;
-            will-change: transform, font-variation-settings;
-            padding: 0 0.03em;
-            cursor: pointer;
-        }
-        .intro-name .intro-char:hover {
-            color: #FAF7F2;
-            text-shadow: 0 0 35px rgba(196, 147, 106, 0.9);
-        }
-        .intro-name .intro-char-dot {
-            color: #C4936A;
-        }
-
-        .intro-sub-wrap {
-            overflow: hidden;
-            margin-bottom: 1.75rem;
-        }
-        .intro-sub {
-            font-size: clamp(0.85rem, 1.8vw, 1.15rem);
-            font-weight: 500;
-            letter-spacing: 0.32em;
-            text-transform: uppercase;
-            color: #FAF7F2;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-            will-change: transform, opacity;
-        }
-
-        .intro-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1.5rem;
-            will-change: transform, opacity;
-        }
-        .intro-enter-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.65rem 1.65rem;
-            background: rgba(250, 247, 242, 0.12);
-            border: 1px solid rgba(250, 247, 242, 0.35);
-            border-radius: var(--radius-full);
-            color: #FAF7F2;
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            cursor: pointer;
-            backdrop-filter: blur(16px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .intro-enter-btn:hover {
-            background: var(--ginkgo-terracotta);
-            border-color: var(--ginkgo-terracotta);
-            color: #FAF7F2;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(196, 147, 106, 0.5);
-        }
-        .intro-enter-btn i {
-            transition: transform 0.3s ease;
-        }
-        .intro-enter-btn:hover i {
-            transform: translateX(3px);
-        }
-        .intro-tip {
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: rgba(250, 247, 242, 0.75);
-            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
             margin: 0;
-            animation: introFadePulse 2.5s ease-in-out infinite alternate;
+            color: var(--hero-x-ink);
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 14.2vw, 10.5rem);
+            font-weight: 500;
+            letter-spacing: -0.075em;
+            line-height: 0.94;
+            text-wrap: balance;
+            cursor: default;
         }
-        @keyframes introFadePulse {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.95; }
+
+        .hero-x-letter {
+            display: inline-block;
+            padding: 0 0.025em;
+            transform-origin: 50% 82%;
+            will-change: transform, font-variation-settings, text-shadow;
         }
+
+        .hero-x-tagline {
+            margin: clamp(1.15rem, 3vw, 1.75rem) 0 0;
+            color: var(--text-soft);
+            font-size: clamp(0.8rem, 2.2vw, 1rem);
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            line-height: 1.35;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translate3d(0, 0.75rem, 0);
+            animation: hero-x-tagline-in 500ms var(--ease-out) 940ms both;
+            transition: transform 500ms var(--ease-out), opacity 500ms ease;
+        }
+
+        .hero-x.hero-x-tagline-ready .hero-x-tagline { opacity: 1; transform: translate3d(0, 0, 0); }
+
+        @keyframes hero-x-tagline-in {
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+
+        .hero-x-cta {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            margin-top: clamp(1.4rem, 4vw, 2rem);
+            padding: 0.72rem 1.2rem;
+            border: 1px solid color-mix(in srgb, var(--hero-x-accent) 48%, transparent);
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.58);
+            box-shadow: 0 6px 20px rgba(15, 44, 61, 0.08);
+            color: var(--hero-x-ink);
+            font-size: 0.86rem;
+            font-weight: 700;
+            transition: transform 220ms var(--ease-out), background-color 220ms ease, box-shadow 220ms ease;
+        }
+
+        .hero-x-cta:hover {
+            background: var(--hero-x-accent);
+            box-shadow: 0 10px 25px rgba(196, 147, 106, 0.25);
+            color: #fff;
+            transform: translate3d(0, -3px, 0);
+        }
+
+        .hero-x-scroll {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.48rem;
+            margin: clamp(1.25rem, 5vw, 2.3rem) 0 0;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .hero-x-scroll::before {
+            width: 0.42rem;
+            height: 0.42rem;
+            border: 1px solid currentColor;
+            border-width: 0 1px 1px 0;
+            content: '';
+            transform: rotate(45deg) translateY(-2px);
+        }
+
+        @media (max-width: 360px) {
+            .hero-x-name { font-size: clamp(2.8rem, 17vw, 4.1rem); letter-spacing: -0.06em; }
+            .hero-x-inner { padding-right: 0.75rem; padding-left: 0.75rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-x-tagline { opacity: 1; transform: none; animation: none; transition: none; }
+            .hero-x-cta { transition: none; }
+        }
+        /* === HERO END === */
 
         /* ---------- Scroll Progress & Cursor ---------- */
         .scroll-progress {
@@ -3134,46 +3112,20 @@
     <noscript><style>.intro { display: none !important; }</style></noscript>
 </head>
 <body>
-    <script>
-        (function () {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-            document.documentElement.classList.add('is-intro');
-            // Failsafe: never leave the page locked if a script fails to load
-            setTimeout(function () {
-                document.documentElement.classList.remove('is-intro', 'motion-lock');
-                var i = document.getElementById('intro');
-                if (i) i.remove();
-            }, 8000);
-        })();
-    </script>
-
-    <!-- ==========================================================================
-         OPENING SEQUENCE: Creative Interactive Splash & Typography
-         ========================================================================== -->
-    <div class="intro" id="intro" role="banner" aria-label="Interactive Welcome Intro">
-        <div class="intro-bg" aria-hidden="true"></div>
-        <div class="intro-panels" aria-hidden="true">
-            <div class="intro-panel-top"></div>
-            <div class="intro-panel-bottom"></div>
+    <!-- === HERO START === -->
+    <section class="hero-x" id="hero-x" aria-labelledby="intro-interactive-name">
+        <div class="hero-x-spotlight" aria-hidden="true"></div>
+        <div class="hero-x-inner">
+            <!-- aria-label retains the complete, readable name for assistive technology. -->
+            <h1 class="hero-x-name" id="intro-interactive-name" aria-label="Punnya.">
+                <span class="hero-x-letter" aria-hidden="true">P</span><span class="hero-x-letter" aria-hidden="true">u</span><span class="hero-x-letter" aria-hidden="true">n</span><span class="hero-x-letter" aria-hidden="true">n</span><span class="hero-x-letter" aria-hidden="true">y</span><span class="hero-x-letter" aria-hidden="true">a</span><span class="hero-x-letter" aria-hidden="true">.</span>
+            </h1>
+            <p class="hero-x-tagline" id="hero-x-tagline">HR Operations &amp; Brand Strategist</p>
+            <a class="hero-x-cta" href="#roadmap">View my work</a>
+            <p class="hero-x-scroll" aria-hidden="true">Scroll to explore</p>
         </div>
-        <div class="intro-spotlight" id="intro-spotlight" aria-hidden="true"></div>
-        <div class="intro-accent-circle" aria-hidden="true"></div>
-        
-        <div class="intro-content">
-            <div class="intro-name-wrap">
-                <div class="intro-name" id="intro-interactive-name" aria-label="Punnya.">
-                    <span class="intro-char">P</span><span class="intro-char">u</span><span class="intro-char">n</span><span class="intro-char">n</span><span class="intro-char">y</span><span class="intro-char">a</span><span class="intro-char intro-char-dot">.</span>
-                </div>
-            </div>
-
-            <div class="intro-actions" id="intro-actions">
-                <button class="intro-enter-btn" id="intro-enter-btn" type="button" aria-label="Enter Portfolio">
-                    <span>Enter</span>
-                    <i class="ri-arrow-right-line"></i>
-                </button>
-            </div>
-        </div>
-    </div>
+    </section>
+    <!-- === HERO END === -->
 
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
@@ -3427,7 +3379,8 @@
         <!-- ==========================================================================
              3. CAREER ROADMAP (WINDING SPINE CENTREPIECE)
              ========================================================================== -->
-        <section class="roadmap-section" id="roadmap" aria-label="Career Roadmap">
+        <!-- === ROADMAP START === -->
+        <section class="roadmap-section road-x-section" id="roadmap" aria-label="Career Roadmap">
             <div class="container">
                 <div class="section-header">
                     <span class="section-eyebrow"><i class="ri-route-line"></i> Journey & Milestones</span>
@@ -3435,41 +3388,28 @@
                     <p class="section-description">A chronological journey through academic milestones, internships, and upcoming career horizons.</p>
                 </div>
 
-                <div class="roadmap-flow-wrapper">
-                    <!-- SVG Winding Curved Spine Canvas (Desktop) -->
-                    <svg class="roadmap-svg-canvas" viewBox="0 0 960 1450" fill="none" preserveAspectRatio="none" aria-hidden="true">
+                <div class="road-x-wrapper" id="road-x-wrapper">
+                    <!-- This path is calculated from the rendered milestone nodes on resize. -->
+                    <svg class="road-x-svg" id="road-x-svg" fill="none" preserveAspectRatio="none" aria-hidden="true">
                         <defs>
-                            <linearGradient id="roadmapPathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <linearGradient id="road-x-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                                 <stop offset="0%" stop-color="#547A6E" />
                                 <stop offset="35%" stop-color="#2D4F56" />
                                 <stop offset="70%" stop-color="#C4936A" />
                                 <stop offset="100%" stop-color="#6E4E3D" />
                             </linearGradient>
                         </defs>
-                        <!-- Background dashed path -->
-                        <path id="roadmap-bg-path" 
-                              d="M 480 30 Q 580 120 480 210 Q 380 300 480 390 Q 580 480 480 570 Q 380 660 480 750 Q 580 840 480 930 Q 380 1020 480 1110 Q 580 1200 480 1400" 
-                              stroke="rgba(45, 79, 86, 0.2)" 
-                              stroke-width="4" 
-                              stroke-dasharray="8 8" 
-                              stroke-linecap="round" />
-                        <!-- Foreground active path drawn on scroll -->
-                        <path id="roadmap-active-path" 
-                              d="M 480 30 Q 580 120 480 210 Q 380 300 480 390 Q 580 480 480 570 Q 380 660 480 750 Q 580 840 480 930 Q 380 1020 480 1110 Q 580 1200 480 1400" 
-                              stroke="url(#roadmapPathGrad)" 
-                              stroke-width="5" 
-                              stroke-linecap="round" />
+                        <path class="road-x-track" id="road-x-track" />
+                        <path class="road-x-progress" id="road-x-progress" />
                     </svg>
-
-                    <!-- Travelling Glowing Milestone Marker Head -->
-                    <div class="roadmap-glow-head" id="roadmap-glow-head"></div>
-
-                    <div id="roadmap-items-container">
+                    <div class="road-x-dot" id="road-x-dot" aria-hidden="true"></div>
+                    <div class="road-x-list" id="roadmap-items-container">
                         <!-- Populated by JavaScript -->
                     </div>
                 </div>
             </div>
         </section>
+        <!-- === ROADMAP END === -->
 
         <!-- ==========================================================================
              4. WORK EXPERIENCE SECTION
@@ -4067,35 +4007,21 @@
                 el.textContent = p.name || "Punnya";
             });
 
-            // 1. Intro Elements (Pill, Subtitle, Actions, Letters)
-            const introPillText = document.getElementById("intro-pill-text");
-            if (introPillText && data.intro?.badge) introPillText.textContent = data.intro.badge;
-
-            const introSub = document.getElementById("intro-sub-text");
-            if (introSub && (data.intro?.sub || p.headline)) {
-                introSub.textContent = data.intro?.sub || p.headline;
-            }
-
-            const introBtnSpan = document.querySelector("#intro-enter-btn span");
-            if (introBtnSpan && data.intro?.enterBtn) {
-                introBtnSpan.textContent = data.intro.enterBtn;
-            }
-
-            const introTipText = document.getElementById("intro-tip-text");
-            if (introTipText && data.intro?.helperTip) {
-                introTipText.textContent = data.intro.helperTip;
-            }
-
+            // 1. Minimal interactive intro: name and five-word headline only.
             const introNameEl = document.getElementById("intro-interactive-name");
+            const introTagline = document.getElementById("hero-x-tagline");
+            const nameStr = data.intro?.name || (p.name ? p.name + "." : "Punnya.");
             if (introNameEl) {
-                const nameStr = data.intro?.name || (p.name ? p.name + "." : "Punnya.");
                 if (introNameEl.getAttribute("data-populated-name") !== nameStr) {
                     introNameEl.setAttribute("data-populated-name", nameStr);
+                    introNameEl.setAttribute("aria-label", nameStr);
                     introNameEl.innerHTML = Array.from(nameStr).map(ch => 
-                        `<span class="intro-char${ch === '.' ? ' intro-char-dot' : ''}" data-char="${ch}">${ch}</span>`
+                        `<span class="hero-x-letter" aria-hidden="true" data-char="${ch}">${ch}</span>`
                     ).join("");
                 }
             }
+            if (introTagline) introTagline.textContent = data.intro?.tagline || p.headline || "";
+            document.dispatchEvent(new CustomEvent("hero-x:content", { detail: { name: nameStr } }));
 
             // 2. Hero Content
             if (document.getElementById("hero-name")) document.getElementById("hero-name").textContent = p.name;
@@ -4175,30 +4101,35 @@
                 }
             }
 
-            // Career Roadmap Milestones
+            // === ROADMAP START ===
+            // The roadmap controller below owns motion and interaction; this only renders the real data.
             const roadmapContainer = document.getElementById("roadmap-items-container");
             const roadmapData = data.roadmap || PROFILE_DATA.roadmap;
             if (roadmapContainer && roadmapData) {
                 roadmapContainer.innerHTML = roadmapData.map((item, index) => `
-                    <div class="roadmap-item ${item.highlight ? 'active' : ''} ${item.type === 'future' ? 'roadmap-next' : ''}" 
+                    <article class="road-x-item ${item.type === 'future' ? 'road-x-next' : ''}"
                          data-category="${item.category}" 
                          data-index="${index}">
-                        <div class="roadmap-pin"><i class="${item.icon}"></i></div>
-                        <div class="roadmap-card-box" onclick="toggleRoadmapItem(this)">
-                            <span class="roadmap-date-pill">${item.date}</span>
-                            <h3 class="roadmap-card-title">${item.title}</h3>
-                            <p class="roadmap-card-org"><i class="ri-building-2-line"></i> ${item.org} ${item.location ? `· ${item.location}` : ''}</p>
-                            <p class="roadmap-card-desc">${item.summary}</p>
-                            <button class="roadmap-expand-btn" type="button" aria-label="Expand details">
-                                <span>Details</span> <i class="ri-arrow-down-s-line"></i>
+                        <span class="road-x-node" aria-hidden="true"><i class="${item.icon}"></i></span>
+                        <div class="road-x-card">
+                            <button class="road-x-trigger" type="button" aria-expanded="false" aria-controls="road-x-details-${index}">
+                                <span class="road-x-date">${item.date}</span>
+                                <span class="road-x-title">${item.title}</span>
+                                <span class="road-x-org"><i class="ri-building-2-line"></i> ${item.org} ${item.location ? `· ${item.location}` : ''}</span>
+                                <span class="road-x-summary">${item.summary}</span>
+                                <span class="road-x-more">Details <i class="ri-arrow-down-s-line"></i></span>
                             </button>
-                            <div class="roadmap-details-drawer">
-                                <p style="font-size:0.875rem; color:var(--text-soft); line-height:1.5;">${item.details}</p>
+                            <div class="road-x-details" id="road-x-details-${index}" role="region" aria-label="${item.title} details">
+                                <div class="road-x-details-inner">
+                                    <p class="road-x-detail-copy">${item.details}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 `).join("");
+                document.dispatchEvent(new CustomEvent("road-x:content"));
             }
+            // === ROADMAP END ===
 
             // 4. Work Experience
             const expGrid = document.getElementById("exp-grid");
@@ -5325,6 +5256,404 @@
             hero.addEventListener('pointerleave', () => { rx(0); ry(0); ix(0); iy(0); });
         }
     })();
+    </script>
+
+    <script>
+    /* === HERO START ===
+       Vanilla pointer/touch field. All per-frame writes are transforms, opacity,
+       and the letter rendering values; the expensive geometry is cached outside rAF. */
+    (() => {
+        document.documentElement.dataset.heroXBooted = 'true';
+        const hero = document.getElementById('hero-x');
+        if (!hero) return;
+
+        const config = {
+            scrambleMs: 1150,       // Total name scramble duration; keep below 1800ms.
+            magnetRadius: 230,      // Pointer influence radius in pixels.
+            repelStrength: 18,      // Maximum letter displacement in pixels.
+            spring: 0.16,           // 0–1: larger values settle faster.
+            tiltStrength: 0.32      // Device-orientation parallax strength.
+        };
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const spotlight = hero.querySelector('.hero-x-spotlight');
+        const inner = hero.querySelector('.hero-x-inner');
+        const tagline = hero.querySelector('.hero-x-tagline');
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let letters = [];
+        let letterCenters = [];
+        let pointer = null;
+        let heroVisible = true;
+        let rafId = 0;
+        let scrambleStart = 0;
+        let isScrambling = false;
+        let spotlightRadius = 0;
+        let tilt = { x: 0, y: 0, tx: 0, ty: 0 };
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        function cacheGeometry() {
+            const heroRect = hero.getBoundingClientRect();
+            letterCenters = letters.map(letter => {
+                const rect = letter.getBoundingClientRect();
+                return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+            });
+            spotlightRadius = spotlight ? spotlight.getBoundingClientRect().width / 2 : 0;
+            return heroRect;
+        }
+
+        function resetLetters() {
+            letters.forEach(letter => {
+                const state = letter._heroXState || (letter._heroXState = {});
+                state.x = state.y = state.r = state.glow = 0;
+                state.scale = 1;
+                state.weight = 500;
+                letter.textContent = letter.dataset.char || letter.textContent;
+                letter.style.transform = '';
+                letter.style.fontVariationSettings = '';
+                letter.style.textShadow = '';
+            });
+        }
+
+        function refreshHero() {
+            letters = Array.from(hero.querySelectorAll('.hero-x-letter'));
+            resetLetters();
+            cacheGeometry();
+            hero.classList.remove('hero-x-tagline-ready');
+
+            if (reduceMotion) {
+                hero.classList.add('hero-x-tagline-ready');
+                return;
+            }
+
+            // Keep the tagline reveal independent of rendering cadence (for background tabs).
+            clearTimeout(hero._heroXTaglineTimer);
+            hero._heroXTaglineTimer = setTimeout(() => {
+                hero.classList.add('hero-x-tagline-ready');
+            }, Math.round(config.scrambleMs * 0.82));
+            scrambleStart = performance.now();
+            isScrambling = true;
+            scheduleFrame();
+        }
+
+        function scheduleFrame() {
+            if (!rafId && heroVisible && !reduceMotion) rafId = requestAnimationFrame(renderFrame);
+        }
+
+        function renderFrame(now) {
+            rafId = 0;
+            if (!heroVisible || reduceMotion) return;
+
+            let needsAnotherFrame = false;
+            if (isScrambling) {
+                const elapsed = now - scrambleStart;
+                const progress = clamp(elapsed / config.scrambleMs, 0, 1);
+                letters.forEach((letter, index) => {
+                    const revealAt = index / Math.max(letters.length, 1) * 0.65;
+                    if (progress < revealAt) {
+                        letter.textContent = alphabet[Math.floor(Math.random() * alphabet.length)];
+                    } else if (progress < 1) {
+                        letter.textContent = Math.random() > progress ? alphabet[Math.floor(Math.random() * alphabet.length)] : letter.dataset.char;
+                    } else {
+                        letter.textContent = letter.dataset.char;
+                    }
+                });
+                if (progress < 1) {
+                    needsAnotherFrame = true;
+                } else {
+                    isScrambling = false;
+                    cacheGeometry();
+                    hero.classList.add('hero-x-tagline-ready');
+                }
+            }
+
+            const heroRect = hero.getBoundingClientRect();
+            const hasPointer = pointer && pointer.x >= heroRect.left && pointer.x <= heroRect.right && pointer.y >= heroRect.top && pointer.y <= heroRect.bottom;
+            let motionIsSettling = false;
+
+            letters.forEach((letter, index) => {
+                const state = letter._heroXState || (letter._heroXState = { x: 0, y: 0, scale: 1, r: 0, weight: 500, glow: 0 });
+                let tx = 0, ty = 0, ts = 1, tr = 0, tw = 500, tg = 0;
+
+                if (hasPointer && letterCenters[index]) {
+                    const center = letterCenters[index];
+                    const dx = center.x - pointer.x;
+                    const dy = center.y - pointer.y;
+                    const distance = Math.hypot(dx, dy) || 1;
+                    const force = clamp(1 - distance / config.magnetRadius, 0, 1);
+                    tx = (dx / distance) * force * config.repelStrength;
+                    ty = (dy / distance) * force * config.repelStrength;
+                    ts = 1 + force * 0.12;
+                    tr = clamp(-dx * 0.045 * force, -5, 5);
+                    tw = 500 + force * 200;
+                    tg = force;
+                }
+
+                state.x += (tx - state.x) * config.spring;
+                state.y += (ty - state.y) * config.spring;
+                state.scale += (ts - state.scale) * config.spring;
+                state.r += (tr - state.r) * config.spring;
+                state.weight += (tw - state.weight) * config.spring;
+                state.glow += (tg - state.glow) * config.spring;
+
+                letter.style.transform = `translate3d(${state.x.toFixed(2)}px, ${state.y.toFixed(2)}px, 0) scale(${state.scale.toFixed(3)}) rotate(${state.r.toFixed(2)}deg)`;
+                letter.style.fontVariationSettings = `'wght' ${Math.round(state.weight)}, 'opsz' 144`;
+                letter.style.textShadow = state.glow > 0.025 ? `0 0 ${Math.round(8 + state.glow * 22)}px rgba(196, 147, 106, ${Math.min(0.56, state.glow * 0.56)})` : '';
+                motionIsSettling ||= Math.abs(state.x - tx) > 0.1 || Math.abs(state.y - ty) > 0.1 || Math.abs(state.scale - ts) > 0.002;
+            });
+
+            tilt.x += (tilt.tx - tilt.x) * 0.08;
+            tilt.y += (tilt.ty - tilt.y) * 0.08;
+            inner.style.transform = `translate3d(${tilt.x.toFixed(2)}px, ${tilt.y.toFixed(2)}px, 0)`;
+
+            if (spotlight) {
+                const px = hasPointer ? pointer.x - heroRect.left : heroRect.width / 2;
+                const py = hasPointer ? pointer.y - heroRect.top : heroRect.height / 2;
+                spotlight.style.transform = `translate3d(${(px - spotlightRadius).toFixed(2)}px, ${(py - spotlightRadius).toFixed(2)}px, 0)`;
+            }
+
+            if (needsAnotherFrame || motionIsSettling || Math.abs(tilt.x - tilt.tx) > 0.1 || Math.abs(tilt.y - tilt.ty) > 0.1) scheduleFrame();
+        }
+
+        function updatePointer(event) {
+            pointer = { x: event.clientX, y: event.clientY };
+            scheduleFrame();
+        }
+
+        hero.addEventListener('pointermove', updatePointer, { passive: true });
+        hero.addEventListener('pointerleave', () => { pointer = null; scheduleFrame(); }, { passive: true });
+        hero.addEventListener('pointercancel', () => { pointer = null; scheduleFrame(); }, { passive: true });
+
+        function handleOrientation(event) {
+            const x = clamp(event.gamma || 0, -20, 20);
+            const y = clamp(event.beta || 0, -20, 20);
+            tilt.tx = x * config.tiltStrength;
+            tilt.ty = y * config.tiltStrength * 0.45;
+            scheduleFrame();
+        }
+
+        function enableOrientation() {
+            window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+        }
+
+        if (!reduceMotion && 'DeviceOrientationEvent' in window) {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                hero.addEventListener('pointerup', () => {
+                    DeviceOrientationEvent.requestPermission().then(result => {
+                        if (result === 'granted') enableOrientation();
+                    }).catch(() => {});
+                }, { passive: true, once: true });
+            } else {
+                enableOrientation();
+            }
+        }
+
+        const heroObserver = new IntersectionObserver(entries => {
+            heroVisible = entries[0].isIntersecting;
+            if (heroVisible) {
+                cacheGeometry();
+                scheduleFrame();
+            } else if (rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = 0;
+            }
+        }, { threshold: 0.02 });
+        heroObserver.observe(hero);
+
+        let resizeTimer;
+        const recache = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => { cacheGeometry(); scheduleFrame(); }, 120);
+        };
+        window.addEventListener('resize', recache, { passive: true });
+        window.addEventListener('orientationchange', recache, { passive: true });
+        window.addEventListener('scroll', recache, { passive: true });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(recache);
+
+        document.addEventListener('hero-x:content', refreshHero);
+        refreshHero();
+    })();
+    /* === HERO END === */
+
+    /* === ROADMAP START ===
+       Vanilla SVG progress, IntersectionObserver reveals, and one-open accordion. */
+    (() => {
+        document.documentElement.dataset.roadXBooted = 'true';
+        const wrapper = document.getElementById('road-x-wrapper');
+        const svg = document.getElementById('road-x-svg');
+        const track = document.getElementById('road-x-track');
+        const progressPath = document.getElementById('road-x-progress');
+        const dot = document.getElementById('road-x-dot');
+        const list = document.getElementById('roadmap-items-container');
+        if (!wrapper || !svg || !track || !progressPath || !dot || !list) return;
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        let items = [];
+        let pathLength = 0;
+        let pathPoints = [];
+        let scrollRaf = 0;
+        let revealObserver;
+        let resizeTimer;
+        let resizeObserver;
+
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+        const debouncePath = () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => { buildPath(); updateProgress(); }, 140);
+        };
+
+        function setOpen(item, open) {
+            items.forEach(candidate => {
+                const shouldOpen = candidate === item && open;
+                candidate.classList.toggle('road-x-is-open', shouldOpen);
+                const trigger = candidate.querySelector('.road-x-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', String(shouldOpen));
+            });
+            // A details panel changes the wrapper height, so recalculate after its transition.
+            setTimeout(debouncePath, 340);
+        }
+
+        function bindItems() {
+            if (revealObserver) revealObserver.disconnect();
+            items = Array.from(list.querySelectorAll('.road-x-item'));
+            items.forEach((item, index) => {
+                item.style.setProperty('--road-x-enter-delay', `${Math.min(index * 65, 260)}ms`);
+                const trigger = item.querySelector('.road-x-trigger');
+                trigger.addEventListener('click', () => {
+                    // A mouseenter fires immediately before a desktop click. Keep that first
+                    // click open so click and hover do not fight; a second click closes it.
+                    if (item._roadXOpenedByHover && item.classList.contains('road-x-is-open')) {
+                        item._roadXOpenedByHover = false;
+                        return;
+                    }
+                    setOpen(item, !item.classList.contains('road-x-is-open'));
+                });
+                if (finePointer && window.matchMedia('(min-width: 768px)').matches) {
+                    item.addEventListener('mouseenter', () => {
+                        item._roadXOpenedByHover = true;
+                        setOpen(item, true);
+                    }, { passive: true });
+                }
+            });
+
+            if (reduceMotion) {
+                items.forEach(item => item.classList.add('road-x-is-visible', 'road-x-is-passed'));
+                return;
+            }
+
+            revealObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('road-x-is-visible');
+                    revealObserver.unobserve(entry.target);
+                });
+            }, { threshold: 0.18, rootMargin: '0px 0px -7% 0px' });
+            items.forEach(item => revealObserver.observe(item));
+        }
+
+        function buildPath() {
+            const nodes = items.map(item => item.querySelector('.road-x-node')).filter(Boolean);
+            if (!nodes.length) return;
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const width = Math.max(wrapper.clientWidth, 1);
+            const height = Math.max(wrapper.clientHeight, 1);
+            const points = nodes.map(node => {
+                const rect = node.getBoundingClientRect();
+                return {
+                    x: rect.left - wrapperRect.left + rect.width / 2,
+                    y: rect.top - wrapperRect.top + rect.height / 2
+                };
+            });
+            pathPoints = points;
+            let d = `M ${points[0].x.toFixed(2)} ${points[0].y.toFixed(2)}`;
+            points.slice(1).forEach((point, index) => {
+                const previous = points[index];
+                const distanceY = point.y - previous.y;
+                const direction = index % 2 === 0 ? 1 : -1;
+                const curve = Math.min(width * (window.innerWidth >= 768 ? 0.09 : 0.055), 72) * direction;
+                d += ` C ${(previous.x + curve).toFixed(2)} ${(previous.y + distanceY * 0.32).toFixed(2)}, ${(point.x - curve).toFixed(2)} ${(point.y - distanceY * 0.32).toFixed(2)}, ${point.x.toFixed(2)} ${point.y.toFixed(2)}`;
+            });
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            track.setAttribute('d', d);
+            progressPath.setAttribute('d', d);
+            // Current Chrome, Safari, and Firefox expose SVGGeometryElement here.
+            // The fallback supports limited embedded preview engines as well.
+            pathLength = typeof progressPath.getTotalLength === 'function'
+                ? progressPath.getTotalLength()
+                : points.slice(1).reduce((length, point, index) => {
+                    const previous = points[index];
+                    return length + Math.hypot(point.x - previous.x, point.y - previous.y);
+                }, 0);
+            progressPath.style.strokeDasharray = String(pathLength);
+            progressPath.style.strokeDashoffset = reduceMotion ? '0' : String(pathLength);
+            if (reduceMotion) dot.hidden = true;
+        }
+
+        function getPointAtProgress(progress) {
+            if (typeof progressPath.getPointAtLength === 'function') {
+                return progressPath.getPointAtLength(pathLength * progress);
+            }
+
+            // Straight-segment fallback only runs where getPointAtLength is unavailable.
+            if (pathPoints.length < 2) return pathPoints[0] || { x: 0, y: 0 };
+            const segments = pathPoints.slice(1).map((point, index) => ({
+                start: pathPoints[index],
+                end: point,
+                length: Math.hypot(point.x - pathPoints[index].x, point.y - pathPoints[index].y)
+            }));
+            let remaining = pathLength * progress;
+            for (const segment of segments) {
+                if (remaining <= segment.length) {
+                    const ratio = segment.length ? remaining / segment.length : 0;
+                    return {
+                        x: segment.start.x + (segment.end.x - segment.start.x) * ratio,
+                        y: segment.start.y + (segment.end.y - segment.start.y) * ratio
+                    };
+                }
+                remaining -= segment.length;
+            }
+            return pathPoints[pathPoints.length - 1];
+        }
+
+        function updateProgress() {
+            scrollRaf = 0;
+            if (!pathLength || !items.length || reduceMotion) return;
+            const rect = wrapper.getBoundingClientRect();
+            const start = window.innerHeight * 0.78;
+            const end = window.innerHeight * 0.28;
+            const progress = clamp((start - rect.top) / (rect.height + start - end), 0, 1);
+            progressPath.style.strokeDashoffset = String(pathLength * (1 - progress));
+            const point = getPointAtProgress(progress);
+            dot.style.transform = `translate3d(${point.x.toFixed(2)}px, ${point.y.toFixed(2)}px, 0) translate(-50%, -50%)`;
+            dot.style.opacity = '1';
+            items.forEach((item, index) => {
+                const milestoneProgress = items.length === 1 ? 0 : index / (items.length - 1);
+                item.classList.toggle('road-x-is-passed', progress >= milestoneProgress);
+            });
+        }
+
+        function requestProgress() {
+            if (!scrollRaf) scrollRaf = requestAnimationFrame(updateProgress);
+        }
+
+        function initialiseRoadmap() {
+            bindItems();
+            requestAnimationFrame(() => { buildPath(); updateProgress(); });
+        }
+
+        window.addEventListener('scroll', requestProgress, { passive: true });
+        window.addEventListener('resize', debouncePath, { passive: true });
+        window.addEventListener('orientationchange', debouncePath, { passive: true });
+        resizeObserver = new ResizeObserver(debouncePath);
+        resizeObserver.observe(wrapper);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(debouncePath);
+        document.addEventListener('road-x:content', initialiseRoadmap);
+        initialiseRoadmap();
+    })();
+    /* === ROADMAP END === */
     </script>
 </body>
 </html>
