@@ -2076,100 +2076,418 @@
         }
 
         @media (max-width: 768px) {
+            /* Structural Spacing & Vertical Rhythm */
+            section {
+                padding: 3.25rem 0 !important;
+            }
+            .hero-section {
+                padding: 5.25rem 0 2rem !important;
+            }
+            .container {
+                padding: 0 1.15rem !important;
+            }
+            .section-header {
+                margin-bottom: 1.75rem !important;
+            }
+            .section-index {
+                display: none !important;
+            }
+            .section-eyebrow {
+                font-size: 0.72rem;
+                padding: 0.25rem 0.75rem;
+                margin-bottom: 0.45rem;
+            }
+            .section-title {
+                font-size: 1.75rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0.5rem !important;
+            }
+            .section-description {
+                font-size: 0.9rem !important;
+                line-height: 1.48 !important;
+            }
+
+            /* Sticky Navigation */
             .nav-menu, .nav-actions .btn {
                 display: none;
             }
             .nav-toggle-btn {
                 display: flex;
             }
+
+            /* Hero Layout & Proportions */
+            .hero-grid {
+                gap: 1.75rem !important;
+                text-align: center;
+            }
+            .hero-content {
+                gap: 0.85rem !important;
+                align-items: center;
+            }
+            .hero-pill-status {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.8rem;
+            }
+            .hero-title {
+                font-size: 2.1rem !important;
+                line-height: 1.15 !important;
+                letter-spacing: -0.02em;
+            }
+            .hero-tagline {
+                font-size: 0.98rem !important;
+                line-height: 1.45 !important;
+                max-width: 100%;
+            }
+            .hero-subcopy {
+                font-size: 0.875rem !important;
+                line-height: 1.5 !important;
+                max-width: 100%;
+            }
+            .hero-ctas {
+                gap: 0.65rem;
+                justify-content: center;
+                width: 100%;
+            }
+            .hero-ctas .btn {
+                padding: 0.65rem 1.3rem;
+                font-size: 0.85rem;
+                min-height: 42px;
+            }
+
+            /* Compact Hero Photo Arch Frame */
+            .photo-arch-frame {
+                width: min(100%, 250px) !important;
+                aspect-ratio: 1 / 1.15 !important;
+                max-height: 300px !important;
+                border-radius: 125px 125px 22px 22px !important;
+                padding: 7px !important;
+                margin: 0 auto !important;
+            }
+            .photo-mask {
+                border-radius: 118px 118px 16px 16px !important;
+            }
+            .floating-badge {
+                padding: 0.45rem 0.75rem !important;
+                gap: 0.45rem !important;
+                border-radius: 10px !important;
+            }
+            .floating-badge strong {
+                font-size: 0.76rem !important;
+            }
+            .floating-badge span {
+                font-size: 0.68rem !important;
+            }
+            .badge-icon {
+                width: 26px !important;
+                height: 26px !important;
+                font-size: 0.85rem !important;
+            }
+            .badge-hero-top {
+                top: -8px !important;
+                right: -6px !important;
+            }
+            .badge-hero-bottom {
+                bottom: -8px !important;
+                left: -6px !important;
+            }
+
+            /* Sleek 2x2 Recruiter Strip */
+            .recruiter-strip {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.65rem !important;
+                padding: 0.85rem 0.9rem !important;
+                margin-top: 1rem !important;
+                text-align: left;
+            }
+            .recruiter-item {
+                gap: 0.45rem !important;
+            }
+            .recruiter-icon-wrap {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 0.9rem !important;
+                border-radius: 8px !important;
+            }
+            .recruiter-item-title {
+                font-size: 0.78rem !important;
+                margin-bottom: 0.1rem;
+            }
+            .recruiter-item-desc {
+                font-size: 0.68rem !important;
+                line-height: 1.25 !important;
+            }
+
+            /* Lens Section & Crossing Ribbons */
+            .lens-bar-section {
+                padding: 0.6rem 0 !important;
+            }
             .lens-toggle-group {
                 width: 100%;
                 justify-content: space-around;
+                padding: 3px !important;
             }
             .lens-label {
                 display: none;
             }
             .lens-btn {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.8rem;
+                padding: 0.42rem 0.7rem !important;
+                font-size: 0.78rem !important;
             }
-            .recruiter-strip {
+            .ribbon-stage {
+                height: 62px !important;
+                margin: 0.75rem 0 !important;
+            }
+            .ribbon {
+                padding: 0.35rem 0 !important;
+            }
+            .ribbon-item {
+                font-size: 0.85rem !important;
+                gap: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+
+            /* About Section */
+            .about-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem !important;
             }
+            .about-story p {
+                font-size: 0.92rem !important;
+                line-height: 1.55 !important;
+                margin-bottom: 0.85rem !important;
+            }
+            .dual-lens-card {
+                padding: 1.25rem 1rem !important;
+                border-radius: 16px !important;
+            }
+            .dual-lens-columns {
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem !important;
+            }
+            .dual-col-title {
+                font-size: 0.98rem !important;
+            }
+            .dual-list li {
+                font-size: 0.825rem !important;
+                line-height: 1.45 !important;
+                margin-bottom: 0.35rem !important;
+            }
+
+            /* Stats Grid */
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem 1rem;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+                margin-top: 1.5rem !important;
             }
-            .stat-card:nth-child(2)::after {
-                display: none;
+            .stat-card {
+                padding: 0.95rem 0.75rem !important;
+                border-radius: 14px !important;
+            }
+            .stat-number-wrap {
+                font-size: 1.95rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+            .stat-label {
+                font-size: 0.76rem !important;
+            }
+            .stat-sub {
+                font-size: 0.68rem !important;
+            }
+
+            /* Work Experience */
+            .exp-grid {
+                gap: 1.15rem !important;
+            }
+            .exp-card {
+                padding: 1.25rem 1rem !important;
+                border-radius: 16px !important;
+            }
+            .exp-card-header {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 0.45rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            .exp-role-title {
+                font-size: 1.15rem !important;
+                margin: 0.2rem 0 !important;
+            }
+            .exp-org-wrap {
+                font-size: 0.825rem !important;
+                gap: 0.4rem !important;
+            }
+            .exp-period-pill {
+                font-size: 0.74rem !important;
+                padding: 0.25rem 0.65rem !important;
+            }
+            .exp-org-summary {
+                font-size: 0.8rem !important;
+                margin-bottom: 0.65rem !important;
+            }
+            .exp-bullets {
+                margin-bottom: 0.75rem !important;
+            }
+            .exp-bullets li {
+                font-size: 0.825rem !important;
+                line-height: 1.45 !important;
+                margin-bottom: 0.35rem !important;
+                padding-left: 1.1rem !important;
+            }
+            .exp-tags-wrap {
+                gap: 0.35rem !important;
+            }
+            .exp-tags-wrap .badge {
+                font-size: 0.72rem !important;
+                padding: 0.25rem 0.6rem !important;
+            }
+
+            /* Education Cards */
+            .edu-grid {
+                grid-template-columns: 1fr;
+                gap: 1.15rem !important;
+            }
+            .edu-card {
+                padding: 1.25rem 1rem !important;
+                border-radius: 16px !important;
+            }
+            .edu-card-top {
+                margin-bottom: 0.65rem !important;
+            }
+            .edu-badge-icon {
+                width: 36px !important;
+                height: 36px !important;
+                font-size: 1.1rem !important;
+                border-radius: 10px !important;
+            }
+            .edu-years {
+                font-size: 0.74rem !important;
+                padding: 0.25rem 0.65rem !important;
+            }
+            .edu-degree {
+                font-size: 1.15rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+            .edu-spec {
+                font-size: 0.825rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+            .edu-institution {
+                font-size: 0.8rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            /* Skills Tracks & Tools */
+            .skills-tracks-grid {
+                grid-template-columns: 1fr;
+                gap: 1.15rem !important;
+            }
+            .skills-track-card {
+                padding: 1.25rem 1rem !important;
+                border-radius: 16px !important;
+            }
+            .track-header {
+                gap: 0.65rem !important;
+                margin-bottom: 0.85rem !important;
+            }
+            .track-title {
+                font-size: 1.05rem !important;
+            }
+            .skill-pill {
+                font-size: 0.78rem !important;
+                padding: 0.35rem 0.7rem !important;
+            }
+            .tools-section {
+                margin-top: 2rem !important;
+            }
+            .tools-title {
+                font-size: 1.05rem !important;
+                margin-bottom: 0.85rem !important;
             }
             .tools-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.55rem !important;
+            }
+            .tool-card {
+                padding: 0.75rem 0.65rem !important;
+                border-radius: 12px !important;
+                min-height: auto !important;
+            }
+            .tool-icon {
+                font-size: 1.35rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+            .tool-name {
+                font-size: 0.82rem !important;
             }
             .langs-interests-grid {
                 grid-template-columns: 1fr;
+                gap: 1.15rem !important;
+                margin-top: 1.5rem !important;
             }
-            
-            /* Responsive Roadmap Transformation: Collapses to left timeline */
-            .roadmap-svg-canvas, .roadmap-glow-head {
-                display: none !important;
+            .info-panel-card {
+                padding: 1.25rem 1rem !important;
+                border-radius: 16px !important;
             }
-            .roadmap-flow-wrapper::before {
-                content: '';
-                position: absolute;
-                left: 24px;
-                top: 0;
-                bottom: 0;
-                width: 3px;
-                background: linear-gradient(180deg, var(--ginkgo-sage), var(--ginkgo-terracotta), var(--ginkgo-chestnut));
-                border-radius: var(--radius-full);
+            .info-panel-title {
+                font-size: 1.05rem !important;
+                margin-bottom: 0.85rem !important;
             }
-            .roadmap-item {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                padding-left: 60px;
-                margin-bottom: 3rem;
+            .lang-item {
+                padding: 0.5rem 0 !important;
             }
-            .roadmap-card-box {
-                width: 100% !important;
-                margin: 0 !important;
-                text-align: left !important;
+            .lang-name {
+                font-size: 0.85rem !important;
             }
-            .roadmap-pin {
-                left: 24px !important;
-                top: 24px !important;
-                transform: translate(-50%, 0) !important;
+            .interest-chip {
+                padding: 0.45rem 0.85rem !important;
+                font-size: 0.82rem !important;
+            }
+
+            /* Contact & Footer */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem !important;
             }
             .contact-card-box {
-                padding: 2rem 1.5rem;
+                padding: 1.35rem 1rem !important;
+                border-radius: 16px !important;
             }
             .footer-grid {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1.25rem !important;
             }
         }
 
-        @media (max-width: 390px) {
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 6.25rem 0 2rem !important;
+            }
             .hero-title {
-                font-size: 2.35rem;
+                font-size: 1.95rem !important;
+            }
+            .recruiter-strip {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.55rem !important;
+                padding: 0.75rem 0.8rem !important;
             }
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.6rem !important;
             }
-            .stat-card::after {
-                display: none !important;
+            .stat-number-wrap {
+                font-size: 1.75rem !important;
             }
-            .certs-grid {
-                grid-template-columns: 1fr;
+            .intro-name {
+                font-size: clamp(2.6rem, 13vw, 4rem) !important;
             }
-            .tools-grid {
-                grid-template-columns: 1fr;
+            .intro-sub {
+                font-size: 0.72rem !important;
+                letter-spacing: 0.16em !important;
             }
-            .badge-hero-top {
-                right: -5px;
-            }
-            .badge-hero-bottom {
-                left: -5px;
+            .intro-enter-btn {
+                padding: 0.6rem 1.35rem !important;
+                font-size: 0.82rem !important;
             }
         }
 
@@ -2994,17 +3312,16 @@
                         <!-- Populated by JavaScript -->
                     </div>
 
-                    <!-- Dual Lens Framework Interactive Card -->
+                    <!-- HR & Marketing Focus Card -->
                     <div class="dual-lens-card">
                         <div class="dual-lens-header">
-                            <span class="badge badge-sage" style="margin-bottom:0.5rem;">Cross-Functional Value</span>
-                            <h3 style="font-size: 1.5rem;">The "Dual Lens" Synergy</h3>
+                            <h3 style="font-size: 1.35rem; font-family: var(--font-serif); margin-bottom: 0.25rem;">HR & Marketing Focus</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-soft);">Dual MBA specialization connecting talent and brand strategy</p>
                         </div>
 
                         <div class="dual-lens-columns">
                             <div class="dual-column col-hr">
                                 <h4 class="dual-col-title"><i class="ri-heart-pulse-line" style="color:var(--ginkgo-sage);"></i> People & HR</h4>
-                                <p class="dual-col-tagline" style="color:var(--ginkgo-spruce);">Internal Culture & Talent</p>
                                 <ul class="dual-list" id="hr-lens-list">
                                     <!-- Populated by JS -->
                                 </ul>
@@ -3012,16 +3329,10 @@
 
                             <div class="dual-column col-mkt">
                                 <h4 class="dual-col-title"><i class="ri-store-3-line" style="color:var(--ginkgo-terracotta);"></i> Marketing</h4>
-                                <p class="dual-col-tagline" style="color:var(--ginkgo-chestnut);">External Brand & Engagement</p>
                                 <ul class="dual-list" id="mkt-lens-list">
                                     <!-- Populated by JS -->
                                 </ul>
                             </div>
-                        </div>
-
-                        <div class="dual-intersection-badge">
-                            <p class="intersection-label">Where Both Meet</p>
-                            <p class="intersection-text">Employer Branding · Internal Comms · Culture-Driven Performance</p>
                         </div>
                     </div>
                 </div>
@@ -3035,13 +3346,13 @@
 
         <!-- ==========================================================================
              3. WORK EXPERIENCE SECTION
-             ========================================================================== -->
+             ========================================================================= -->
         <section id="experience" aria-label="Work Experience">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow"><i class="ri-briefcase-4-line"></i> Practical Impact</span>
+                    <span class="section-eyebrow"><i class="ri-briefcase-4-line"></i> Experience</span>
                     <h2 class="section-title">Work Experience</h2>
-                    <p class="section-description">Practical internship experience across human resources operations, financial equity brokerage, and commercial sales environments.</p>
+                    <p class="section-description">Hands-on internships across talent operations, wealth management, and commercial sales.</p>
                 </div>
 
                 <div class="exp-grid" id="exp-grid">
@@ -3056,9 +3367,9 @@
         <section id="education" aria-label="Education History">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-eyebrow"><i class="ri-book-read-line"></i> Academic Credentials</span>
+                    <span class="section-eyebrow"><i class="ri-book-read-line"></i> Academic Background</span>
                     <h2 class="section-title">Education History</h2>
-                    <p class="section-description">Verified academic degrees and schooling under recognized state and technical university boards.</p>
+                    <p class="section-description">Academic foundation in business management and English literature.</p>
                 </div>
 
                 <div class="edu-grid" id="edu-grid">
@@ -3198,7 +3509,7 @@
                                     <select id="role-type" class="inquiry-input">
                                         <option value="HR & People Operations Role">Human Resources / People Operations</option>
                                         <option value="Marketing & Brand Associate Role">Marketing & Brand Strategy</option>
-                                        <option value="Cross-Functional HR × Marketing Opportunity">Dual Lens (HR × Marketing)</option>
+                                        <option value="Combined HR & Marketing Opportunity">HR & Marketing Combined</option>
                                         <option value="General Conversation / Networking">General Conversation / Networking</option>
                                     </select>
                                 </div>
@@ -3244,7 +3555,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2026</span> <span id="footer-copyright-text">Punnya. Crafted with elegance, authenticity, and dual-lens precision.</span></p>
+                <p>&copy; <span id="current-year">2026</span> <span id="footer-copyright-text">Punnya. Crafted with elegance and authentic professionalism.</span></p>
                 <a href="#hero" style="display:inline-flex; align-items:center; gap:0.4rem; font-weight:600; font-size:0.85rem;">
                     Back to Top <i class="ri-arrow-up-line"></i>
                 </a>
@@ -3328,9 +3639,9 @@
   ],
   "about": {
     "sectionBadge": "Professional Profile",
-    "sectionTitle": "Harmonizing Employee Potential with Market Reputation",
+    "sectionTitle": "People Operations Meets Brand Strategy",
     "paragraphs": [
-      "I am an enthusiastic and dedicated <strong>MBA graduate specializing in Human Resources and Marketing</strong> from Dhanalakshmi Srinivasan College of Engineering. Equipped with practical internship experience across both HR operations and customer-facing sales environments, I bring a well-rounded dual lens to people management and brand communication.",
+      "I am an enthusiastic and dedicated <strong>MBA graduate specializing in Human Resources and Marketing</strong> from Dhanalakshmi Srinivasan College of Engineering. Equipped with practical internship experience across both HR operations and customer-facing sales environments, I bring a well-rounded perspective to people management and brand communication.",
       "With a strong undergraduate foundation in <strong>B.A. English</strong> from Sree Narayana College, I bring crisp verbal communication, active listening, and meticulous documentation skills to the workplace. My hands-on exposure includes talent operations at a premier financial brokerage (<strong>Hedge Equities</strong>), personnel administration at a major worker cooperative (<strong>ULCCS</strong>), and client engagement at a landmark business hub (<strong>Hilite Business Park</strong>).",
       "Known as a quick learner, proactive team collaborator, and detail-oriented organizer, I am eager to contribute to a progressive organization where professional learning and meaningful impact are valued."
     ],
@@ -3342,42 +3653,38 @@
         "sub": "Hedge Equities, ULCCS, Hilite"
       },
       {
+        "value": 2,
+        "suffix": "",
+        "label": "MBA Specializations",
+        "sub": "Human Resources & Marketing"
+      },
+      {
         "value": 4,
         "suffix": "",
-        "label": "Languages",
+        "label": "Languages Spoken",
         "sub": "English, Malayalam, Hindi, Tamil"
       },
       {
         "value": 2025,
         "suffix": "",
-        "label": "MBA Class of",
+        "label": "MBA Cohort",
         "sub": "Dhanalakshmi Srinivasan College"
-      },
-      {
-        "value": 100,
-        "suffix": "%",
-        "label": "Verified from CV",
-        "sub": "Authentic academic & work history"
       }
     ],
     "dualLens": {
-      "hrTitle": "Human Resources Operations",
+      "hrTitle": "People Operations & HR",
       "hrPoints": [
-        "Employee Onboarding & Induction",
-        "Recruitment Support & Screening",
-        "Interview Scheduling & Panel Coordination",
-        "Personnel Documentation & Confidential Records",
-        "Attendance & Leave Log Reconciliation",
-        "Internal Staff Communications & Notices"
+        "Employee Onboarding & Induction Support",
+        "Recruitment Screening & Interview Scheduling",
+        "Personnel Records & Confidential File Maintenance",
+        "Attendance, Leave Tracking & Policy Notices"
       ],
       "marketingTitle": "Marketing & Client Relations",
       "marketingPoints": [
-        "Client Walkthroughs & Presentations",
-        "Lead Generation & Qualification",
-        "Customer Relationship Management (CRM)",
-        "Customer Feedback Form Administration",
-        "Promotional Collateral Organization",
-        "Product & Service Demonstrations"
+        "Client Walkthroughs & Commercial Pitch Support",
+        "Lead Qualification & Direct Customer Engagement",
+        "Customer Feedback Questionnaires & Response Analysis",
+        "Promotional Marketing Collateral Organization"
       ]
     }
   },
@@ -3389,19 +3696,16 @@
       "org": "Hedge Equities",
       "location": "Kozhikode, Kerala, India",
       "period": "3 Months",
-      "orgDescription": "Premier financial services and wealth management firm operating across equity broking and investment advisory verticals.",
+      "orgDescription": "Financial Services & Wealth Management",
       "bullets": [
-        "Assisted in the collection, organization, and maintenance of confidential employee records and personnel files.",
-        "Observed and supported recruitment workflows, including candidate application screening and interview scheduling.",
-        "Participated in preparing internal communication materials and coordinating employee orientation and training sessions.",
-        "Assisted in tracking and following up on employee probation milestones and appraisal review timelines.",
-        "Helped organize office engagement activities and maintained daily HR operational logs."
+        "Assisted in collecting and maintaining confidential employee personnel files and operational logs.",
+        "Supported recruitment workflows, including candidate application screening and interview scheduling.",
+        "Helped track employee probation milestones, appraisal timelines, and internal orientation sessions."
       ],
       "skillsUsed": [
         "Recruitment Support",
         "Interview Scheduling",
         "Confidential Records",
-        "Appraisal Tracking",
         "Employee Engagement"
       ]
     },
@@ -3411,20 +3715,17 @@
       "role": "HR Intern (Summer Internship)",
       "org": "Uralungal Labour Contract Co-Operative Society (ULCCS)",
       "location": "Calicut, Kerala, India",
-      "period": "Summer Internship · 1 Month",
-      "orgDescription": "One of India's oldest and largest worker cooperative societies, renowned for major infrastructure projects and community governance.",
+      "period": "1 Month",
+      "orgDescription": "Infrastructure & Worker Cooperative",
       "bullets": [
-        "Assisted in the documentation of employee personnel files, ensuring high record fidelity and data accuracy.",
-        "Supported the HR department in organizing archives and preparing attendance and leave reconciliation reports.",
-        "Participated in onboarding routines for new employees and attended internal policy briefings.",
-        "Handled administrative tasks, drafted internal staff communications and notices under senior supervision.",
-        "Helped compile training materials, coordinated training sessions, and observed employee grievance handling."
+        "Supported documentation of employee personnel files and attendance reconciliation reports.",
+        "Participated in onboarding routines for new joiners and assisted with internal staff communications.",
+        "Coordinated training session logistics, materials, and observed grievance handling procedures."
       ],
       "skillsUsed": [
         "Employee Onboarding",
         "HR Documentation",
         "Attendance Tracking",
-        "Staff Notices",
         "Training Coordination"
       ]
     },
@@ -3435,18 +3736,16 @@
       "org": "Hilite Business Park",
       "location": "Calicut, Kerala, India",
       "period": "15 Days",
-      "orgDescription": "Landmark commercial business hub in Northern Kerala hosting prominent corporate IT enterprises and commercial retailers.",
+      "orgDescription": "Commercial Business Park & IT Hub",
       "bullets": [
-        "Observed daily sales operations and engaged prospective clients during commercial space walkthroughs.",
-        "Handled product and service information for visitors and routed qualified inquiries to senior sales staff.",
-        "Prepared and administered structured customer feedback questionnaires to evaluate visitor satisfaction.",
-        "Organized promotional marketing collateral and maintained customer service counter presentations."
+        "Engaged prospective clients during commercial office walkthroughs and explained project specifications.",
+        "Prepared and administered structured customer feedback questionnaires to evaluate client interest.",
+        "Organized promotional marketing collateral and routed qualified corporate inquiries to senior sales leads."
       ],
       "skillsUsed": [
         "Client Walkthroughs",
-        "Lead Generation",
+        "Lead Qualification",
         "Customer Feedback",
-        "Product Demonstrations",
         "Promotional Collateral"
       ]
     }
@@ -3458,9 +3757,8 @@
       "institution": "Dhanalakshmi Srinivasan College of Engineering",
       "location": "Tamil Nadu, India",
       "years": "2023 – 2025",
-      "statusBadge": "Class of 2025",
       "icon": "ri-graduation-cap-line",
-      "highlight": "Specializing in talent acquisition, employee relations, integrated brand management, and market research."
+      "highlight": "Specializing in talent acquisition, employee relations, and brand strategy."
     },
     {
       "degree": "Bachelor of Arts in English (B.A.)",
@@ -3468,29 +3766,24 @@
       "institution": "Sree Narayana College, Keezhal",
       "location": "Kerala, India",
       "years": "2020 – 2023",
-      "statusBadge": "Completed",
       "icon": "ri-book-open-line",
-      "highlight": "Built rigorous written and verbal communication, analytical reasoning, and business English capabilities."
+      "highlight": "Rigorous foundation in business communication, analytical reasoning, and writing."
     },
     {
       "degree": "Plus Two (Higher Secondary)",
-      "specialisation": "Board of Higher Secondary Examination",
+      "specialisation": "Higher Secondary (Class XII)",
       "institution": "Government of Kerala",
       "location": "Kerala, India",
       "years": "2018 – 2020",
-      "statusBadge": "Completed",
-      "icon": "ri-building-line",
-      "highlight": "Foundational higher secondary academic qualification."
+      "icon": "ri-building-line"
     },
     {
-      "degree": "SSLC (Secondary School Leaving Certificate)",
-      "specialisation": "Board of Public Examination",
+      "degree": "SSLC (Class X)",
+      "specialisation": "Secondary School Leaving Certificate",
       "institution": "Government of Kerala",
       "location": "Kerala, India",
       "years": "2017 – 2018",
-      "statusBadge": "Completed",
-      "icon": "ri-school-line",
-      "highlight": "Secondary schooling credential with core foundational disciplines."
+      "icon": "ri-school-line"
     }
   ],
   "skills": {
@@ -3517,70 +3810,22 @@
       { "name": "Business Development Support", "icon": "ri-briefcase-line" }
     ],
     "tools": [
-      {
-        "name": "MS Excel",
-        "desc": "Attendance tracking, data entry, reports",
-        "icon": "ri-file-excel-2-line"
-      },
-      {
-        "name": "MS Word",
-        "desc": "HR documentation, notices, correspondence",
-        "icon": "ri-file-word-2-line"
-      },
-      {
-        "name": "MS PowerPoint",
-        "desc": "Presentations, decks, orientation slides",
-        "icon": "ri-file-ppt-2-line"
-      },
-      {
-        "name": "Google Workspace",
-        "desc": "Docs, Sheets, Drive collaborative tools",
-        "icon": "ri-google-line"
-      },
-      {
-        "name": "Internet Research",
-        "desc": "Talent sourcing & market information",
-        "icon": "ri-global-line"
-      }
+      { "name": "MS Excel", "icon": "ri-file-excel-2-line" },
+      { "name": "MS Word", "icon": "ri-file-word-2-line" },
+      { "name": "MS PowerPoint", "icon": "ri-file-ppt-2-line" },
+      { "name": "Google Workspace", "icon": "ri-google-line" },
+      { "name": "Internet Research", "icon": "ri-global-line" }
     ],
     "languages": [
-      {
-        "name": "English",
-        "level": "Professional Working Proficiency (B.A. English)",
-        "badge": "Fluent"
-      },
-      {
-        "name": "Malayalam",
-        "level": "Native / Mother Tongue",
-        "badge": "Native"
-      },
-      {
-        "name": "Hindi",
-        "level": "Intermediate Working Proficiency",
-        "badge": "Intermediate"
-      },
-      {
-        "name": "Tamil",
-        "level": "Basic Conversational Understanding",
-        "badge": "Basic"
-      }
+      { "name": "English", "badge": "Fluent" },
+      { "name": "Malayalam", "badge": "Native" },
+      { "name": "Hindi", "badge": "Intermediate" },
+      { "name": "Tamil", "badge": "Basic" }
     ],
     "interests": [
-      {
-        "name": "Painting & Sketching",
-        "desc": "Creative eye for visual balance & aesthetics",
-        "icon": "ri-palette-line"
-      },
-      {
-        "name": "Practicing Yoga",
-        "desc": "Focus, mindfulness, and discipline",
-        "icon": "ri-mental-health-line"
-      },
-      {
-        "name": "Social Media Management",
-        "desc": "Audience engagement & brand storytelling",
-        "icon": "ri-instagram-line"
-      }
+      { "name": "Painting & Sketching", "icon": "ri-palette-line" },
+      { "name": "Practicing Yoga", "icon": "ri-mental-health-line" },
+      { "name": "Social Media Management", "icon": "ri-instagram-line" }
     ]
   },
   "contact": {
@@ -3595,7 +3840,7 @@
   },
   "footer": {
     "brandSub": "MBA (HR & Marketing) · Class of 2025",
-    "copyright": "Punnya. Crafted with elegance, authenticity, and dual-lens precision."
+    "copyright": "Punnya. Crafted with elegance and authentic professionalism."
   }
 };
 
@@ -3767,9 +4012,6 @@
                         <div class="edu-spec">${edu.specialisation}</div>
                         <div class="edu-institution"><i class="ri-map-pin-2-line"></i> ${edu.institution}, ${edu.location}</div>
                         ${edu.highlight ? `<p style="font-size:0.875rem; color:var(--text-soft); margin-top:0.65rem; line-height:1.5;">${edu.highlight}</p>` : ''}
-                        <div class="edu-meta-strip" style="margin-top:0.75rem;">
-                            <span class="edu-pill">${edu.statusBadge}</span>
-                        </div>
                     </div>
                 `).join("");
             }
@@ -3804,7 +4046,6 @@
                         <div class="tool-card">
                             <i class="${t.icon} tool-icon"></i>
                             <div class="tool-name">${t.name}</div>
-                            <div class="tool-desc">${t.desc}</div>
                         </div>
                     `).join("");
                 }
@@ -3813,10 +4054,7 @@
                 if (langList && data.skills.languages) {
                     langList.innerHTML = data.skills.languages.map(l => `
                         <div class="lang-item">
-                            <div>
-                                <div class="lang-name">${l.name}</div>
-                                <div style="font-size:0.8rem; color:var(--text-soft);">${l.level}</div>
-                            </div>
+                            <div class="lang-name">${l.name}</div>
                             <span class="badge badge-sage">${l.badge}</span>
                         </div>
                     `).join("");
@@ -3827,10 +4065,7 @@
                     interestsChips.innerHTML = data.skills.interests.map(i => `
                         <div class="interest-chip">
                             <i class="${i.icon}" style="color:var(--accent);"></i>
-                            <div>
-                                <strong style="display:block; font-size:0.85rem;">${i.name}</strong>
-                                <span style="font-size:0.75rem; color:var(--text-soft);">${i.desc}</span>
-                            </div>
+                            <strong style="font-size:0.85rem;">${i.name}</strong>
                         </div>
                     `).join("");
                 }
@@ -4641,7 +4876,10 @@
                 const words = splitWords(title);
                 const tl = gsap.timeline({
                     defaults: { ease: 'expo.out' },
-                    scrollTrigger: { trigger: block, start: 'top 85%', once: true }
+                    scrollTrigger: { trigger: block, start: 'top 85%', once: true },
+                    onComplete: () => {
+                        if (words && words.length) gsap.set(words, { clearProps: 'all' });
+                    }
                 });
                 if (idx) tl.from(idx, { autoAlpha: 0, scale: 0.7, duration: 1.4 }, 0);
                 if (eyebrow) tl.from(eyebrow, { autoAlpha: 0, y: 14, scale: 0.7, duration: 0.8, ease: 'back.out(2)' }, 0);
