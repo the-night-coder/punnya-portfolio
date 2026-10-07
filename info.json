@@ -54,9 +54,9 @@
     "sectionBadge": "Professional Profile",
     "sectionTitle": "People Operations Meets Brand Strategy",
     "paragraphs": [
-      "I am an enthusiastic and dedicated <strong>MBA graduate specializing in Human Resources and Marketing</strong> from Dhanalakshmi Srinivasan College of Engineering. Equipped with practical internship experience across both HR operations and customer-facing sales environments, I bring a well-rounded perspective to people management and brand communication.",
-      "With a strong undergraduate foundation in <strong>B.A. English</strong> from Sree Narayana College, I bring crisp verbal communication, active listening, and meticulous documentation skills to the workplace. My hands-on exposure includes talent operations at a premier financial brokerage (<strong>Hedge Equities</strong>), personnel administration at a major worker cooperative (<strong>ULCCS</strong>), and client engagement at a landmark business hub (<strong>Hilite Business Park</strong>).",
-      "Known as a quick learner, proactive team collaborator, and detail-oriented organizer, I am eager to contribute to a progressive organization where professional learning and meaningful impact are valued."
+      "I am an enthusiastic and dedicated <strong>MBA student specializing in Human Resources and Marketing</strong> at Dhanalakshmi Srinivasan College of Engineering. Equipped with practical knowledge from internships in both HR operations and sales environments, I am eager to apply my academic foundation to real-world people management and brand communication challenges.",
+      "Building on my undergraduate studies in <strong>B.A. English</strong> from Sree Narayana College, I bring strong business communication, active listening, and meticulous documentation skills to the workplace. During my internships, I gained valuable hands-on exposure to HR processes at a financial brokerage (<strong>Hedge Equities</strong>) and a major cooperative society (<strong>ULCCS</strong>), as well as client relations at a landmark business hub (<strong>Hilite Business Park</strong>).",
+      "Known as a quick learner and a proactive team player, I am familiar with modern HR practices, marketing strategies, and customer service approaches. I am currently seeking entry-level roles or internship opportunities where I can contribute meaningfully while continuing my professional growth and learning."
     ],
     "stats": [
       {
@@ -124,8 +124,8 @@
       "title": "HR Intern (Summer Internship)",
       "org": "ULCCS Ltd (Uralungal Labour Contract Co-Operative Society)",
       "location": "Calicut, Kerala, India",
-      "summary": "Facilitated employee onboarding, verified personnel records, and drafted structured employee training modules.",
-      "details": "Assisted in maintaining accurate documentation across 100+ personnel files, compiled employee engagement materials, reconciled attendance records, and coordinated staff notices.",
+      "summary": "Participated in employee onboarding, assisted with personnel records, and supported daily HR operations.",
+      "details": "Assisted in documenting employee files, helped compile training materials, supported attendance record keeping, and observed grievance handling and engagement activities.",
       "highlight": false
     },
     {
@@ -137,8 +137,8 @@
       "title": "Human Resources Intern",
       "org": "Hedge Equities",
       "location": "Calicut, Kerala, India",
-      "summary": "Screened candidate resumes, scheduled interviews, and tracked employee appraisal timelines.",
-      "details": "Coordinated interview schedules, maintained confidential HR records, monitored performance appraisal cycles, and assisted with internal team-building initiatives.",
+      "summary": "Supported recruitment processes, assisted in maintaining personnel records, and tracked appraisal timelines.",
+      "details": "Helped with application screening and interview scheduling, maintained confidential employee files, and assisted the HR team in coordinating training and orientation sessions.",
       "highlight": false
     },
     {
@@ -150,8 +150,8 @@
       "title": "Sales & Client Relations Intern",
       "org": "Hilite Business Park",
       "location": "Calicut, Kerala, India",
-      "summary": "Engaged prospective commercial clients, conducted project walkthroughs, and gathered feedback.",
-      "details": "Assisted senior sales leads with corporate inquiries, demonstrated commercial spaces, and evaluated client requirements using structured feedback questionnaires.",
+      "summary": "Observed daily sales operations, supported client interactions, and gathered customer feedback.",
+      "details": "Assisted team members in handling product information, organized promotional materials, sat in on client meetings, and helped prepare customer feedback forms.",
       "highlight": false
     },
     {
@@ -191,9 +191,9 @@
       "period": "3 Months",
       "orgDescription": "Financial Services & Wealth Management",
       "bullets": [
-        "Assisted in collecting and maintaining confidential employee personnel files and operational logs.",
-        "Supported recruitment workflows, including candidate application screening and interview scheduling.",
-        "Helped track employee probation milestones, appraisal timelines, and internal orientation sessions."
+        "Assisted in the collection and organization of employee information and maintained confidential files.",
+        "Supported recruitment processes, including application screening and interview scheduling.",
+        "Helped track probation and appraisal timelines and supported the coordination of employee training sessions."
       ],
       "skillsUsed": [
         "Recruitment Support",
@@ -211,9 +211,9 @@
       "period": "1 Month",
       "orgDescription": "Infrastructure & Worker Cooperative",
       "bullets": [
-        "Supported documentation of employee personnel files and attendance reconciliation reports.",
-        "Participated in onboarding routines for new joiners and assisted with internal staff communications.",
-        "Coordinated training session logistics, materials, and observed grievance handling procedures."
+        "Participated in onboarding processes for new employees and assisted in documenting personnel files and attendance records.",
+        "Supported daily HR operations and helped draft internal communications and staff notices.",
+        "Assisted in compiling training materials and observed grievance handling and employee engagement activities."
       ],
       "skillsUsed": [
         "Employee Onboarding",
@@ -231,9 +231,9 @@
       "period": "15 Days",
       "orgDescription": "Commercial Business Park & IT Hub",
       "bullets": [
-        "Engaged prospective clients during commercial office walkthroughs and explained project specifications.",
-        "Prepared and administered structured customer feedback questionnaires to evaluate client interest.",
-        "Organized promotional marketing collateral and routed qualified corporate inquiries to senior sales leads."
+        "Observed daily sales operations and supported team members in handling product information and customer interactions.",
+        "Assisted in preparing customer feedback forms and sat in on client meetings to understand service offerings.",
+        "Helped organize promotional materials and noted inquiries to pass on to the concerned sales staff."
       ],
       "skillsUsed": [
         "Client Walkthroughs",
@@ -423,6 +423,6 @@
   },
   "footer": {
     "brandSub": "MBA (HR & Marketing) · Class of 2025",
-    "copyright": "Punnya. Crafted with elegance and authentic professionalism."
+    "copyright": "Punnya. Crafted with elegance by Punnya & Night Coder."
   }
 }
