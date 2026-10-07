@@ -1,0 +1,351 @@
+{
+  "personal": {
+    "name": "Punnya",
+    "shortName": "Punnya",
+    "monogram": "P",
+    "headline": "HR Operations & Brand Strategist",
+    "tagline": "Where people strategy meets brand storytelling. Bridging internal workplace culture with external brand identity.",
+    "subcopy": "MBA graduate specializing in Human Resources and Marketing. Practical internship experience across cooperative infrastructure, financial equities, and commercial real estate.",
+    "status": "Available for HR & Marketing roles",
+    "email": "punnya.in@gmail.com",
+    "phone": "+91 87144 64003",
+    "phoneRaw": "+918714464003",
+    "location": "Calicut, Kerala, India",
+    "relocationStatus": "Available for Relocation",
+    "linkedin": "https://www.linkedin.com/in/punnya-ajith-039204318?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "resumeUrl": "assets/Resume.pdf",
+    "photoUrl": "assets/images/punnya-portrait.jpg",
+    "heroBadgeTop": {
+      "title": "MBA · 2023–25",
+      "sub": "HR & Marketing Major"
+    },
+    "heroBadgeBottom": {
+      "title": "Calicut, Kerala",
+      "sub": "Available for Relocation"
+    }
+  },
+  "intro": {
+    "name": "Punnya.",
+    "sub": "HR Operations × Brand Strategist",
+    "badge": "Available for Opportunities · Class of 2025",
+    "enterBtn": "Explore Portfolio",
+    "helperTip": "Click anywhere, scroll, or press Space to enter"
+  },
+  "recruiterStrip": [
+    {
+      "icon": "ri-graduation-cap-line",
+      "title": "MBA (2023–25)",
+      "desc": "HR & Marketing Specialization"
+    },
+    {
+      "icon": "ri-briefcase-3-line",
+      "title": "3 Internships",
+      "desc": "Hedge Equities, ULCCS, Hilite"
+    },
+    {
+      "icon": "ri-book-open-line",
+      "title": "B.A. English",
+      "desc": "Clear Business Communication"
+    },
+    {
+      "icon": "ri-global-line",
+      "title": "4 Languages",
+      "desc": "English, Malayalam, Hindi, Tamil"
+    }
+  ],
+  "about": {
+    "sectionBadge": "Professional Profile",
+    "sectionTitle": "People Operations Meets Brand Strategy",
+    "paragraphs": [
+      "I am an enthusiastic and dedicated <strong>MBA graduate specializing in Human Resources and Marketing</strong> from Dhanalakshmi Srinivasan College of Engineering. Equipped with practical internship experience across both HR operations and customer-facing sales environments, I bring a well-rounded perspective to people management and brand communication.",
+      "With a strong undergraduate foundation in <strong>B.A. English</strong> from Sree Narayana College, I bring crisp verbal communication, active listening, and meticulous documentation skills to the workplace. My hands-on exposure includes talent operations at a premier financial brokerage (<strong>Hedge Equities</strong>), personnel administration at a major worker cooperative (<strong>ULCCS</strong>), and client engagement at a landmark business hub (<strong>Hilite Business Park</strong>).",
+      "Known as a quick learner, proactive team collaborator, and detail-oriented organizer, I am eager to contribute to a progressive organization where professional learning and meaningful impact are valued."
+    ],
+    "stats": [
+      {
+        "value": 3,
+        "suffix": "",
+        "label": "Industry Internships",
+        "sub": "Hedge Equities, ULCCS, Hilite"
+      },
+      {
+        "value": 2,
+        "suffix": "",
+        "label": "MBA Specializations",
+        "sub": "Human Resources & Marketing"
+      },
+      {
+        "value": 4,
+        "suffix": "",
+        "label": "Languages Spoken",
+        "sub": "English, Malayalam, Hindi, Tamil"
+      },
+      {
+        "value": 2025,
+        "suffix": "",
+        "label": "MBA Cohort",
+        "sub": "Dhanalakshmi Srinivasan College"
+      }
+    ],
+    "dualLens": {
+      "hrTitle": "People Operations & HR",
+      "hrPoints": [
+        "Employee Onboarding & Induction Support",
+        "Recruitment Screening & Interview Scheduling",
+        "Personnel Records & Confidential File Maintenance",
+        "Attendance, Leave Tracking & Policy Notices"
+      ],
+      "marketingTitle": "Marketing & Client Relations",
+      "marketingPoints": [
+        "Client Walkthroughs & Commercial Pitch Support",
+        "Lead Qualification & Direct Customer Engagement",
+        "Customer Feedback Questionnaires & Response Analysis",
+        "Promotional Marketing Collateral Organization"
+      ]
+    }
+  },
+  "experience": [
+    {
+      "id": "exp-hedge",
+      "category": "hr",
+      "role": "HR Intern",
+      "org": "Hedge Equities",
+      "location": "Kozhikode, Kerala, India",
+      "period": "3 Months",
+      "orgDescription": "Financial Services & Wealth Management",
+      "bullets": [
+        "Assisted in collecting and maintaining confidential employee personnel files and operational logs.",
+        "Supported recruitment workflows, including candidate application screening and interview scheduling.",
+        "Helped track employee probation milestones, appraisal timelines, and internal orientation sessions."
+      ],
+      "skillsUsed": [
+        "Recruitment Support",
+        "Interview Scheduling",
+        "Confidential Records",
+        "Employee Engagement"
+      ]
+    },
+    {
+      "id": "exp-ulccs",
+      "category": "hr",
+      "role": "HR Intern (Summer Internship)",
+      "org": "Uralungal Labour Contract Co-Operative Society (ULCCS)",
+      "location": "Calicut, Kerala, India",
+      "period": "1 Month",
+      "orgDescription": "Infrastructure & Worker Cooperative",
+      "bullets": [
+        "Supported documentation of employee personnel files and attendance reconciliation reports.",
+        "Participated in onboarding routines for new joiners and assisted with internal staff communications.",
+        "Coordinated training session logistics, materials, and observed grievance handling procedures."
+      ],
+      "skillsUsed": [
+        "Employee Onboarding",
+        "HR Documentation",
+        "Attendance Tracking",
+        "Training Coordination"
+      ]
+    },
+    {
+      "id": "exp-hilite",
+      "category": "marketing",
+      "role": "Sales & Client Relations Intern",
+      "org": "Hilite Business Park",
+      "location": "Calicut, Kerala, India",
+      "period": "15 Days",
+      "orgDescription": "Commercial Business Park & IT Hub",
+      "bullets": [
+        "Engaged prospective clients during commercial office walkthroughs and explained project specifications.",
+        "Prepared and administered structured customer feedback questionnaires to evaluate client interest.",
+        "Organized promotional marketing collateral and routed qualified corporate inquiries to senior sales leads."
+      ],
+      "skillsUsed": [
+        "Client Walkthroughs",
+        "Lead Qualification",
+        "Customer Feedback",
+        "Promotional Collateral"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Business Administration (MBA)",
+      "specialisation": "Human Resources & Marketing",
+      "institution": "Dhanalakshmi Srinivasan College of Engineering",
+      "location": "Tamil Nadu, India",
+      "years": "2023 – 2025",
+      "icon": "ri-graduation-cap-line",
+      "highlight": "Specializing in talent acquisition, employee relations, and brand strategy."
+    },
+    {
+      "degree": "Bachelor of Arts in English (B.A.)",
+      "specialisation": "English Language & Literature",
+      "institution": "Sree Narayana College, Keezhal",
+      "location": "Kerala, India",
+      "years": "2020 – 2023",
+      "icon": "ri-book-open-line",
+      "highlight": "Rigorous foundation in business communication, analytical reasoning, and writing."
+    },
+    {
+      "degree": "Plus Two (Higher Secondary)",
+      "specialisation": "Higher Secondary (Class XII)",
+      "institution": "Government of Kerala",
+      "location": "Kerala, India",
+      "years": "2018 – 2020",
+      "icon": "ri-building-line"
+    },
+    {
+      "degree": "SSLC (Class X)",
+      "specialisation": "Secondary School Leaving Certificate",
+      "institution": "Government of Kerala",
+      "location": "Kerala, India",
+      "years": "2017 – 2018",
+      "icon": "ri-school-line"
+    }
+  ],
+  "skills": {
+    "hr": [
+      {
+        "name": "Employee Onboarding",
+        "icon": "ri-user-add-line"
+      },
+      {
+        "name": "Recruitment Support",
+        "icon": "ri-search-eye-line"
+      },
+      {
+        "name": "Interview Scheduling",
+        "icon": "ri-calendar-check-line"
+      },
+      {
+        "name": "HR Documentation",
+        "icon": "ri-file-shield-line"
+      },
+      {
+        "name": "Compliance Support",
+        "icon": "ri-shield-check-line"
+      },
+      {
+        "name": "Internal Communication",
+        "icon": "ri-chat-voice-line"
+      },
+      {
+        "name": "Data Entry & Records",
+        "icon": "ri-database-2-line"
+      },
+      {
+        "name": "Attendance & Leave Tracking",
+        "icon": "ri-time-line"
+      },
+      {
+        "name": "Training Coordination",
+        "icon": "ri-presentation-line"
+      },
+      {
+        "name": "Employee Engagement",
+        "icon": "ri-team-line"
+      }
+    ],
+    "marketing": [
+      {
+        "name": "Lead Generation",
+        "icon": "ri-user-shared-line"
+      },
+      {
+        "name": "Client Interaction",
+        "icon": "ri-user-star-line"
+      },
+      {
+        "name": "Customer Relationship Mgmt",
+        "icon": "ri-customer-service-line"
+      },
+      {
+        "name": "Sales Presentations",
+        "icon": "ri-slideshow-line"
+      },
+      {
+        "name": "Product Demonstrations",
+        "icon": "ri-tv-line"
+      },
+      {
+        "name": "Customer Feedback Systems",
+        "icon": "ri-survey-line"
+      },
+      {
+        "name": "Sales Support",
+        "icon": "ri-hand-heart-line"
+      },
+      {
+        "name": "Business Development Support",
+        "icon": "ri-briefcase-line"
+      }
+    ],
+    "tools": [
+      {
+        "name": "MS Excel",
+        "icon": "ri-file-excel-2-line"
+      },
+      {
+        "name": "MS Word",
+        "icon": "ri-file-word-2-line"
+      },
+      {
+        "name": "MS PowerPoint",
+        "icon": "ri-file-ppt-2-line"
+      },
+      {
+        "name": "Google Workspace",
+        "icon": "ri-google-line"
+      },
+      {
+        "name": "Internet Research",
+        "icon": "ri-global-line"
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "badge": "Fluent"
+      },
+      {
+        "name": "Malayalam",
+        "badge": "Native"
+      },
+      {
+        "name": "Hindi",
+        "badge": "Intermediate"
+      },
+      {
+        "name": "Tamil",
+        "badge": "Basic"
+      }
+    ],
+    "interests": [
+      {
+        "name": "Painting & Sketching",
+        "icon": "ri-palette-line"
+      },
+      {
+        "name": "Practicing Yoga",
+        "icon": "ri-mental-health-line"
+      },
+      {
+        "name": "Social Media Management",
+        "icon": "ri-instagram-line"
+      }
+    ]
+  },
+  "contact": {
+    "sectionBadge": "Get in Touch",
+    "sectionTitle": "Let's Connect & Discuss Opportunities",
+    "subcopy": "Whether you are hiring for Human Resources, Talent Acquisition, or Marketing roles, I would love to connect.",
+    "email": "punnya.in@gmail.com",
+    "phone": "+91 87144 64003",
+    "phoneRaw": "+918714464003",
+    "location": "Calicut, Kerala, India (Available for Relocation)",
+    "linkedin": "https://www.linkedin.com/in/punnya-ajith-039204318?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  },
+  "footer": {
+    "brandSub": "MBA (HR & Marketing) · Class of 2025",
+    "copyright": "Punnya. Crafted with elegance, authenticity, and dual-lens precision."
+  }
+}
