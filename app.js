@@ -208,12 +208,14 @@
     skillExperience.hidden = !experience;
     if (experience) skillExperience.href = `#${experience.id}`;
     chip.setAttribute('aria-expanded', 'true');
+    document.documentElement.classList.add('skill-detail-active');
     document.body.classList.add('skill-detail-active');
     skillDialog.showModal();
     positionSkillDialog();
     skillTitle.focus({ preventScroll: true });
   });
   skillDialog.addEventListener('close', () => {
+    document.documentElement.classList.remove('skill-detail-active');
     document.body.classList.remove('skill-detail-active');
     activeSkill?.setAttribute('aria-expanded', 'false');
     if (returnToSkill && activeSkill?.isConnected) activeSkill.focus({ preventScroll: true });

@@ -11,7 +11,7 @@
 .skill-trigger:focus-visible{outline:2px solid var(--berry);outline-offset:3px}
 .toolkit-panel .skill-cloud>span{min-height:32px;display:inline-flex;align-items:center}
 
-body.skill-detail-active{overflow:hidden}
+html.skill-detail-active,body.skill-detail-active{overflow:hidden}
 .skill-detail{position:fixed;inset:auto;margin:0;width:380px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 40px);padding:36px 30px 25px;background:var(--paper);color:var(--ink);border:1px solid #d7c9cb;border-radius:6px 6px 34px 6px;box-shadow:0 24px 80px #2d142540;overflow-y:auto;overscroll-behavior:contain}
 .skill-detail:not([open]){display:none}
 .skill-detail[open]{animation:skill-sheet-in .25s var(--ease) both}

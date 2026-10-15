@@ -148,3 +148,11 @@ body{overflow-x:clip}.hero-description{font-size:13px}.about-columns p{font-size
 .icon{display:inline-block;width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;overflow:visible}
 .brand-star .icon,.small-spark .icon,.marquee i .icon,.rings-center .icon,.panel-doodle .icon,.education-star .icon{display:block}
 .footer-heart .icon{width:.95em;height:.95em}
+
+/* Keep one vertical document scroller; animated artwork cannot widen it. */
+html{width:100%;max-width:100%;overflow-x:hidden;overscroll-behavior:none;touch-action:pan-y pinch-zoom}
+body{width:100%;min-width:0;overflow-x:clip;overscroll-behavior:none}
+main{width:100%;min-width:0;display:flow-root;overflow:clip}
+.hero-copy,.hero-art,.about-main,.toolkit-panels,.roadmap-list,.contact-main,.site-footer>p{min-width:0}
+/* Closed dialogs must never contribute a box or offscreen scroll extent. */
+dialog:not([open]){display:none!important}
