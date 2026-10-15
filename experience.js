@@ -195,7 +195,12 @@
     if (event.target === intro && event.animationName === 'intro-curtain') finishIntro();
     if (event.target === letters.at(-1) && event.animationName === 'intro-letter-in') cacheNameBounds();
   });
-  document.querySelectorAll('.intro-replay').forEach(button => button.addEventListener('click', openIntro));
+  document.querySelector('[data-replay-intro]').addEventListener('click', event => {
+    // The normal anchor remains a back-to-top fallback without dialog support.
+    if (typeof intro.showModal !== 'function') return;
+    event.preventDefault();
+    openIntro();
+  });
   if (!location.hash || new URLSearchParams(location.search).get('intro') === '1') openIntro();
 
   const roadmap = document.querySelector('#roadmap');
