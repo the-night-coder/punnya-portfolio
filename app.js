@@ -278,7 +278,11 @@
   }).then(data => {
     const person = data.personal || {};
     if (typeof person.name === 'string') {
-      document.querySelector('.hello').textContent = `Hello there, I’m ${person.shortName || person.name}.`;
+      document.querySelector('#hero-title em').replaceChildren(document.createTextNode(person.shortName || person.name));
+      const period = document.createElement('span');
+      period.className = 'period';
+      period.textContent = '.';
+      document.querySelector('#hero-title em').append(period);
       document.querySelector('.portrait-name').textContent = `${person.name}.`;
     }
     if (typeof person.status === 'string') {
