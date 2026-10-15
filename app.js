@@ -179,11 +179,10 @@
     const email = person.email;
     if (typeof email === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       document.querySelectorAll('a[href^="mailto:"]').forEach(link => link.href = `mailto:${email}`);
-      document.querySelector('.contact-email').replaceChildren(document.createTextNode(`${email} `));
-      const arrow = document.createElement('span');
-      arrow.setAttribute('aria-hidden', 'true');
-      arrow.textContent = '↗';
-      document.querySelector('.contact-email').append(arrow);
+      const emailLink = document.querySelector('.contact-email');
+      const arrow = emailLink.querySelector('[aria-hidden="true"]');
+      emailLink.replaceChildren(document.createTextNode(`${email} `));
+      if (arrow) emailLink.append(arrow);
     }
     if (typeof person.phoneRaw === 'string' && /^\+?[\d\s-]+$/.test(person.phoneRaw)) {
       const phoneLink = document.querySelector('a[href^="tel:"]');

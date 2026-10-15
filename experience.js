@@ -130,7 +130,7 @@
   intro.addEventListener('touchcancel', endTouch, { passive: true });
   intro.addEventListener('keydown', event => {
     if (event.ctrlKey || event.metaKey || event.altKey || !intro.open || leaving) return;
-    if (['ArrowDown', 'PageDown', ' '].includes(event.key)) {
+    if (['ArrowDown', 'PageDown', 'End', 'Enter', ' ', 'Tab'].includes(event.key)) {
       event.preventDefault();
       leaveIntro();
     }
@@ -179,6 +179,7 @@
     window.scrollTo(0, 0);
     try {
       intro.showModal();
+      introTitle.focus({ preventScroll: true });
       requestAnimationFrame(cacheNameBounds);
     } catch {
       root.classList.remove('intro-active');
@@ -186,8 +187,6 @@
     }
   }
 
-  intro.querySelector('.intro-enter').addEventListener('click', leaveIntro);
-  intro.querySelector('.intro-skip').addEventListener('click', leaveIntro);
   intro.addEventListener('cancel', event => {
     event.preventDefault();
     leaveIntro();

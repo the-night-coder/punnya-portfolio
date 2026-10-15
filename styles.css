@@ -143,3 +143,9 @@ body{overflow-x:clip}.hero-description{font-size:13px}.about-columns p{font-size
   .site-footer{gap:10px}.site-footer .wordmark{font-size:24px}.site-footer p,.site-footer p>span{font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.motion-ready .reveal{opacity:1;transform:none}.marquee-track{transform:none}.portrait-card:hover,.interest-card:hover{transform:none}}
+
+/* Local vector icons keep their shape on every platform. */
+.icon-sprite{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.icon{display:inline-block;width:1em;height:1em;vertical-align:-.14em;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;overflow:visible}
+.brand-star .icon,.small-spark .icon,.marquee i .icon,.rings-center .icon,.panel-doodle .icon,.education-star .icon{display:block}
+.footer-heart .icon{width:.95em;height:.95em}
