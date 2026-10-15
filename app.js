@@ -54,12 +54,18 @@
     // Content stays visible if JavaScript or observers are unavailable.
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !document.body.classList.contains('intro-active')) {
           entry.target.classList.add('visible');
           revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -15px 0px' });
+    document.addEventListener('portfolio:entered', () => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(element => {
+        revealObserver.unobserve(element);
+        revealObserver.observe(element);
+      });
+    });
     if (!reducedMotion.matches) {
       document.querySelectorAll('.experience-list, .beyond').forEach(group => {
         [...group.children].filter(child => child.classList.contains('reveal')).forEach((child, index) => {
