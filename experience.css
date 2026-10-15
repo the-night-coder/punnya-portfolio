@@ -11,6 +11,8 @@ html.intro-active{scroll-behavior:auto}
 .intro-letter{display:inline-block;transform-origin:50% 90%}
 .intro-dot{color:var(--lime)}
 .intro-role{font-size:12px;letter-spacing:.08em;line-height:1.8;color:#d6b9c3}
+.intro-caption{font-size:9px;letter-spacing:.16em;line-height:1.8;text-transform:uppercase;text-align:center;color:#bd97a6}
+.intro[open] .intro-caption{animation:intro-fade .85s .1s var(--ease) both}
 .intro-bloom{position:absolute;z-index:-1;left:-35px;bottom:20px;width:245px;height:245px;stroke:#e0bfc0;stroke-width:.6;opacity:.2;transform:rotate(-18deg)}
 .intro-bloom circle{fill:var(--lime);stroke:none}
 .intro[open] .intro-letter{animation:intro-letter-in 1.05s var(--ease) both;animation-delay:calc(100ms + var(--i)*85ms)}
@@ -156,5 +158,5 @@ html.intro-active{scroll-behavior:auto}
 .intro{padding:30px 5vw max(34px,env(safe-area-inset-bottom))}
 .intro-scroll-cue{justify-self:center;gap:10px;grid-column:1/-1;font-size:10px;letter-spacing:.08em;color:#d0b3bf}
 .intro-scroll-cue svg{width:32px;height:32px}
-@media(max-width:700px){.intro-role{font-size:11px}.intro-scroll-cue{font-size:9px;min-height:32px}}
+@media(max-width:700px){.intro-role{font-size:11px}.intro-caption{font-size:8px}.intro-scroll-cue{font-size:9px;min-height:32px}}
 @media(max-height:530px){.intro{padding:16px 5vw 22px}.intro-stage{padding:0}.intro-title{font-size:clamp(70px,16vw,160px)}.intro-role{font-size:10px}.intro-scroll-cue{font-size:9px}.intro-scroll-cue svg{width:27px;height:27px}}
