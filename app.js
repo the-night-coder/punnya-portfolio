@@ -147,6 +147,109 @@
     });
   });
 
+  const skillDialog = document.querySelector('#skill-detail');
+  const skillTitle = skillDialog.querySelector('#skill-detail-title');
+  const skillDescription = skillDialog.querySelector('#skill-detail-description');
+  const skillContext = skillDialog.querySelector('.skill-context');
+  const skillExperience = skillDialog.querySelector('.skill-experience-link');
+  const skillEvidence = new WeakMap();
+  let activeSkill = null;
+  let returnToSkill = true;
+  let backdropPress = false;
+
+  function positionSkillDialog() {
+    skillDialog.style.removeProperty('left');
+    skillDialog.style.removeProperty('top');
+    if (!skillDialog.open || horizontalTabs.matches || !activeSkill) return;
+    const anchor = activeSkill.getBoundingClientRect();
+    const sheet = skillDialog.getBoundingClientRect();
+    const gap = 20;
+    let left = anchor.right + gap;
+    if (left + sheet.width > innerWidth - gap) left = anchor.left - sheet.width - gap;
+    left = Math.max(gap, Math.min(left, innerWidth - sheet.width - gap));
+    const top = Math.max(gap, Math.min(anchor.top - gap, innerHeight - sheet.height - gap));
+    skillDialog.style.left = `${left}px`;
+    skillDialog.style.top = `${top}px`;
+  }
+
+  function makeSkillChip(skill) {
+    const evidence = skill.evidence;
+    const hasEvidence = typeof skillDialog.showModal === 'function' && evidence && typeof evidence.context === 'string' && typeof evidence.detail === 'string';
+    const chip = document.createElement(hasEvidence ? 'button' : 'span');
+    chip.textContent = skill.name;
+    if (!hasEvidence) return chip;
+    chip.type = 'button';
+    chip.className = 'skill-trigger';
+    chip.setAttribute('aria-haspopup', 'dialog');
+    chip.setAttribute('aria-controls', 'skill-detail');
+    chip.setAttribute('aria-expanded', 'false');
+    const plus = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    plus.setAttribute('viewBox', '0 0 24 24');
+    plus.setAttribute('aria-hidden', 'true');
+    plus.setAttribute('focusable', 'false');
+    const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    use.setAttribute('href', '#icon-plus');
+    plus.append(use);
+    chip.append(plus);
+    skillEvidence.set(chip, { name: skill.name, ...evidence });
+    return chip;
+  }
+
+  document.querySelector('.toolkit-panels').addEventListener('click', event => {
+    const chip = event.target.closest('.skill-trigger');
+    const evidence = skillEvidence.get(chip);
+    if (!evidence || skillDialog.open) return;
+    activeSkill = chip;
+    returnToSkill = true;
+    skillTitle.textContent = evidence.name;
+    skillDescription.textContent = evidence.detail;
+    skillContext.textContent = evidence.context;
+    const experience = typeof evidence.experienceId === 'string' && document.getElementById(evidence.experienceId);
+    skillExperience.hidden = !experience;
+    if (experience) skillExperience.href = `#${experience.id}`;
+    chip.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('skill-detail-active');
+    skillDialog.showModal();
+    positionSkillDialog();
+    skillTitle.focus({ preventScroll: true });
+  });
+  skillDialog.addEventListener('close', () => {
+    document.body.classList.remove('skill-detail-active');
+    activeSkill?.setAttribute('aria-expanded', 'false');
+    if (returnToSkill && activeSkill?.isConnected) activeSkill.focus({ preventScroll: true });
+    activeSkill = null;
+    backdropPress = false;
+  });
+  function outsideSkillSheet(event) {
+    const bounds = skillDialog.getBoundingClientRect();
+    return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+  }
+  skillDialog.addEventListener('pointerdown', event => {
+    backdropPress = event.target === skillDialog && outsideSkillSheet(event);
+  });
+  skillDialog.addEventListener('click', event => {
+    if (backdropPress && event.target === skillDialog && outsideSkillSheet(event)) skillDialog.close();
+    backdropPress = false;
+  });
+  skillExperience.addEventListener('click', () => {
+    const target = document.getElementById(skillExperience.hash.slice(1));
+    if (!target) return;
+    returnToSkill = false;
+    skillDialog.close();
+    target.open = true;
+    target.classList.add('visible');
+    target.querySelector('summary').focus({ preventScroll: true });
+  });
+  window.addEventListener('resize', () => {
+    if (skillDialog.open) positionSkillDialog();
+  });
+
+  const interestCards = [...document.querySelectorAll('details.interest-card')];
+  interestCards.forEach(card => card.addEventListener('toggle', () => {
+    if (card.open) interestCards.forEach(other => { if (other !== card) other.open = false; });
+    updateScroll();
+  }));
+
   const copyButton = document.querySelector('.copy-email');
   const copyStatus = document.querySelector('#copy-status');
   const originalCopy = copyButton.innerHTML;
@@ -213,12 +316,10 @@
     document.querySelectorAll('[data-skill-group]').forEach(group => {
       const skills = data.skills?.[group.dataset.skillGroup];
       if (Array.isArray(skills) && skills.length) {
-        const fragments = skills.filter(skill => typeof skill.name === 'string').map(skill => {
-          const chip = document.createElement('span');
-          chip.textContent = skill.name;
-          return chip;
-        });
+        const fragments = skills.filter(skill => typeof skill.name === 'string').map(makeSkillChip);
         if (fragments.length) group.replaceChildren(...fragments);
+        const hint = group.parentElement.querySelector('.skill-hint');
+        if (hint) hint.hidden = !group.querySelector('.skill-trigger');
       }
     });
     if (Array.isArray(data.experience)) {
