@@ -1,0 +1,89 @@
+/* Touch-first invitations to explore the existing portfolio. */
+.toolkit-panel .skill-hint{margin-top:22px!important;font-size:10px!important;color:#5e6655;letter-spacing:.02em}
+.skill-hint[hidden]{display:none}.skill-hint:not([hidden])+.skill-cloud{margin-top:10px}
+.skill-hint .icon{display:inline-block;width:12px;height:12px;vertical-align:-2px;fill:none;stroke:currentColor;stroke-width:1.6}
+.skill-cloud{align-items:center}
+.skill-cloud .skill-trigger{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;max-width:100%;padding:9px 13px;border-radius:24px;border:1px solid #9da98f;background:#f5f7ef;color:#394331;font-size:11px;line-height:1.5;text-align:left;transition:background .2s,border-color .2s,transform .2s var(--ease),box-shadow .2s}
+.skill-trigger svg{width:15px;height:15px;flex:0 0 15px;fill:none;stroke-width:1.6;transition:transform .25s var(--ease)}
+.skill-trigger[aria-expanded=true]{background:var(--berry);border-color:var(--berry);color:var(--paper)}
+.skill-trigger[aria-expanded=true] svg{transform:rotate(45deg)}
+.skill-cloud .skill-trigger:active{transform:scale(.97)}
+.skill-trigger:focus-visible{outline:2px solid var(--berry);outline-offset:3px}
+.toolkit-panel .skill-cloud>span{min-height:32px;display:inline-flex;align-items:center}
+
+html.skill-detail-active,body.skill-detail-active{overflow:hidden}
+.skill-detail{position:fixed;inset:auto;margin:0;width:380px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 40px);padding:36px 30px 25px;background:var(--paper);color:var(--ink);border:1px solid #d7c9cb;border-radius:6px 6px 34px 6px;box-shadow:0 24px 80px #2d142540;overflow-y:auto;overscroll-behavior:contain}
+.skill-detail:not([open]){display:none}
+.skill-detail[open]{animation:skill-sheet-in .25s var(--ease) both}
+.skill-detail::backdrop{background:#332b2e42;animation:skill-backdrop-in .2s ease both}
+.skill-detail .eyebrow{font-size:9px;letter-spacing:.16em;padding-right:30px}
+.skill-detail h2{font-size:34px;line-height:1.12;letter-spacing:-.045em;margin:19px 0 17px;overflow-wrap:anywhere}
+.skill-detail h2:focus{outline:none}
+.skill-detail .skill-context{display:inline-block;font-size:10px;line-height:1.7;border-bottom:1px solid #c9b7bd;padding-bottom:7px;color:var(--berry)}
+#skill-detail-description{font-size:14px;line-height:1.85;margin:17px 0 20px;color:#63585b}
+.skill-close{position:absolute;top:12px;right:12px;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:transparent;transition:background .2s,transform .2s}
+.skill-close svg{width:19px;height:19px;fill:none}.skill-close:active{transform:scale(.93)}
+.skill-experience-link{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;border-top:1px solid var(--line);padding-top:10px;font-size:12px;color:var(--berry)}
+.skill-experience-link[hidden]{display:none}.skill-experience-link svg{fill:none;transition:transform .2s}
+.skill-sheet-handle{display:none}
+@keyframes skill-sheet-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes skill-backdrop-in{from{opacity:0}to{opacity:1}}
+
+.beyond{align-items:start}
+.sketchbook-caption{display:block;font-family:var(--serif);font-style:italic;font-size:14px;line-height:1.6;color:var(--berry);margin-top:20px}
+.interest-card{display:block;min-height:0;padding:0;border-color:#d6c5c8;border-radius:3px 3px 20px 3px;background:#f0e2e1;align-self:start;overflow:clip;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s}
+.interest-card.interest-yoga{background:#e6e9df;border-color:#cbd2c0}.interest-card.interest-social{background:#eee6d8;border-color:#d6cbb9}
+.interest-card:hover{transform:none;box-shadow:none}
+.interest-card summary{position:relative;padding:33px 23px 18px;list-style:none;cursor:pointer;touch-action:manipulation}
+.interest-card summary::-webkit-details-marker{display:none}.interest-card summary::marker{content:''}
+.interest-card summary:focus-visible{outline:2px solid var(--berry);outline-offset:-5px;border-radius:3px}
+.interest-card .interest-number{top:12px;left:23px;font-size:7px;letter-spacing:.1em;color:#77666a}
+.interest-card .interest-illustration{display:block;width:100%;height:100px;stroke:#7e5865;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin:6px 0 21px}
+.interest-yoga .interest-illustration{stroke:#63705c}.interest-social .interest-illustration{stroke:#866842}
+.interest-cover-copy{display:block}
+.interest-card .interest-title{display:block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:-.02em;line-height:1.6}
+.interest-teaser{display:block;font-size:11px;line-height:1.7;color:#77666a;margin-top:5px}
+.interest-card .interest-cue{display:flex;align-items:center;justify-content:space-between;margin-top:21px;padding-top:12px;border-top:1px solid #b89caa50;font-size:10px;color:var(--berry)}
+.interest-card .interest-cue svg{display:block;width:26px;height:26px;margin:0;padding:5px;border:1px solid #a0858e70;border-radius:50%;stroke:currentColor;stroke-width:1.5;fill:none;transition:transform .3s var(--ease),background .3s}
+.note-close{display:none}.interest-card[open] .note-open{display:none}.interest-card[open] .note-close{display:inline}
+.interest-card[open] .interest-cue svg{transform:rotate(45deg);background:#ffffff60}
+.interest-card[open]{box-shadow:0 10px 25px #58313e09;border-color:#ac929a}
+.interest-note{border-top:1px dashed #b49ca480;padding:21px 23px 18px;background:#ffffff36;background-image:repeating-linear-gradient(transparent 0,transparent 29px,#58313e05 29px,#58313e05 30px)}
+.interest-note .note-kicker{display:block;font-size:7px;letter-spacing:.1em;line-height:1.8;color:#746568}
+.interest-note p{font-family:var(--serif);font-size:22px;font-weight:400;font-style:italic;letter-spacing:-.025em;line-height:1.5;margin:14px 0 10px;color:var(--berry)}
+.interest-card .note-flourish{width:100%;height:30px;stroke:#997581;stroke-width:1.3;margin:3px 0 0}
+.interest-card[open] .interest-note{animation:note-unfold .35s var(--ease) both;transform-origin:top}
+.interest-card[open] .interest-illustration path,.interest-card[open] .note-flourish path{stroke-dasharray:100;animation:note-draw .9s ease both}
+.interest-card[open] .note-flourish path{animation-delay:.15s}
+@keyframes note-unfold{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes note-draw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+
+@media(hover:hover) and (pointer:fine){
+  .skill-cloud .skill-trigger:hover{border-color:var(--berry);background:#fff;box-shadow:0 3px 10px #58313e0b;transform:translateY(-2px)}
+  .skill-cloud .skill-trigger[aria-expanded=true]:hover{background:var(--berry)}
+  .skill-close:hover{background:#e9dedf}.skill-experience-link:hover svg{transform:translate(2px,-2px)}
+  .interest-card:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 12px 20px #58313e08}
+  .interest-card[open]:hover{transform:translateY(-2px)}
+}
+@media(min-width:701px) and (max-width:1100px){.beyond-heading{flex-wrap:wrap;gap:12px}.sketchbook-caption{flex-basis:100%;margin-top:0}}
+@media(max-width:700px){
+  .skill-cloud .skill-trigger{min-height:44px;padding:10px 12px;font-size:11px;gap:10px}
+  .skill-detail{inset:auto 0 0!important;margin:0;width:100%;max-width:100%;max-height:calc(100dvh - 24px);padding:36px 25px calc(24px + env(safe-area-inset-bottom));border:0;border-radius:24px 24px 0 0;box-shadow:0 -16px 70px #332b2e26}
+  .skill-sheet-handle{display:block;position:absolute;top:12px;left:calc(50% - 18px);width:36px;height:4px;border-radius:4px;background:#cfc1c5}
+  .skill-detail .eyebrow{font-size:9px}.skill-detail h2{font-size:34px;margin-top:23px;max-width:90%}
+  .skill-detail .skill-context{font-size:11px}#skill-detail-description{font-size:14px;line-height:1.85}
+  .skill-close{top:21px;right:12px}.skill-experience-link{font-size:13px;min-height:48px}
+  .beyond{gap:14px}.beyond-heading{margin-bottom:11px}.sketchbook-caption{font-size:15px;margin-top:14px}
+  .interest-card{display:block;padding:0;min-height:0;border-radius:3px 3px 16px 3px}
+  .interest-card summary{display:grid;grid-template-columns:70px minmax(0,1fr);gap:0 17px;padding:32px 20px 14px;align-items:center}
+  .interest-card .interest-number{top:10px;left:20px;font-size:7px}
+  .interest-card .interest-illustration{grid-column:1;grid-row:1;width:70px;height:67px;margin:0}
+  .interest-cover-copy{grid-column:2;grid-row:1}.interest-card .interest-title{font-size:14px}.interest-teaser{font-size:11px;line-height:1.65}
+  .interest-card .interest-cue{grid-column:1/-1;margin-top:14px;padding-top:10px;font-size:11px;min-height:37px}
+  .interest-note{padding:22px 25px 20px}.interest-note .note-kicker{font-size:8px}.interest-note p{font-size:26px;line-height:1.5}
+  .interest-card .note-flourish{width:160px;height:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  .skill-detail,.skill-detail::backdrop,.interest-note,.interest-card path{animation:none!important}
+  .skill-cloud .skill-trigger:hover,.interest-card:hover,.interest-card[open]:hover,.skill-cloud .skill-trigger:active,.skill-close:active{transform:none}
+}

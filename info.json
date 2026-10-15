@@ -283,43 +283,93 @@
     "hr": [
       {
         "name": "Employee Onboarding",
-        "icon": "ri-user-add-line"
+        "icon": "ri-user-add-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Supported onboarding for new employees and helped prepare internal communications and staff notices.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Recruitment Support",
-        "icon": "ri-search-eye-line"
+        "icon": "ri-search-eye-line",
+        "evidence": {
+          "context": "HR Intern · Hedge Equities",
+          "detail": "Observed recruitment activities, including application screening and interview scheduling, during a three-month HR internship.",
+          "experienceId": "exp-hedge"
+        }
       },
       {
         "name": "Interview Scheduling",
-        "icon": "ri-calendar-check-line"
+        "icon": "ri-calendar-check-line",
+        "evidence": {
+          "context": "HR Intern · Hedge Equities",
+          "detail": "Gained exposure to interview scheduling as part of observing the recruitment process, alongside application screening.",
+          "experienceId": "exp-hedge"
+        }
       },
       {
         "name": "HR Documentation",
-        "icon": "ri-file-shield-line"
+        "icon": "ri-file-shield-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Maintained employee records and personnel files, paying attention to accurate data and everyday HR documentation.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Compliance Support",
-        "icon": "ri-shield-check-line"
+        "icon": "ri-shield-check-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Gained exposure to compliance, payroll, and grievance handling while supporting day-to-day HR activities.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Internal Communication",
-        "icon": "ri-chat-voice-line"
+        "icon": "ri-chat-voice-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Drafted internal communications and notices for staff as part of the HR internship.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Data Entry & Record Keeping",
-        "icon": "ri-database-2-line"
+        "icon": "ri-database-2-line",
+        "evidence": {
+          "context": "HR Intern · Hedge Equities",
+          "detail": "Organized employee information, maintained confidential files, and supported HR data logs.",
+          "experienceId": "exp-hedge"
+        }
       },
       {
         "name": "Attendance & Leave Tracking",
-        "icon": "ri-time-line"
+        "icon": "ri-time-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Prepared attendance and leave reports while maintaining accurate employee records.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Training Coordination",
-        "icon": "ri-presentation-line"
+        "icon": "ri-presentation-line",
+        "evidence": {
+          "context": "HR Intern · ULCCS",
+          "detail": "Compiled training materials and helped coordinate training sessions for employees.",
+          "experienceId": "exp-ulccs"
+        }
       },
       {
         "name": "Employee Engagement Support",
-        "icon": "ri-team-line"
+        "icon": "ri-team-line",
+        "evidence": {
+          "context": "HR Intern · Hedge Equities",
+          "detail": "Helped with office activities, engagement programs, and internal communications during the HR internship.",
+          "experienceId": "exp-hedge"
+        }
       }
     ],
     "marketing": [
@@ -329,11 +379,21 @@
       },
       {
         "name": "Client Interaction",
-        "icon": "ri-user-star-line"
+        "icon": "ri-user-star-line",
+        "evidence": {
+          "context": "Sales Intern · Hilite Business Park",
+          "detail": "Observed customer interactions, passed inquiries to sales staff, and sat in on client meetings.",
+          "experienceId": "exp-hilite"
+        }
       },
       {
         "name": "Sales Support",
-        "icon": "ri-hand-heart-line"
+        "icon": "ri-hand-heart-line",
+        "evidence": {
+          "context": "Sales Intern · Hilite Business Park",
+          "detail": "Supported the sales team with product information, arranged promotional materials, and prepared basic customer feedback forms.",
+          "experienceId": "exp-hilite"
+        }
       },
       {
         "name": "Customer Relationship Management",
@@ -349,7 +409,12 @@
       },
       {
         "name": "Product Demonstration",
-        "icon": "ri-tv-line"
+        "icon": "ri-tv-line",
+        "evidence": {
+          "context": "Sales Intern · Hilite Business Park",
+          "detail": "Took part in basic product demonstrations and gained exposure to daily sales operations.",
+          "experienceId": "exp-hilite"
+        }
       },
       {
         "name": "Business Development Support",
@@ -427,6 +492,6 @@
   },
   "footer": {
     "brandSub": "MBA · Human Resources & Marketing · 2023–2025",
-    "copyright": "Punnya. Crafted with elegance by Punnya & Night Coder."
+    "copyright": "Crafted with elegance by Punnya & Night Coder."
   }
 }
