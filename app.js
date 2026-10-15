@@ -61,9 +61,20 @@
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -15px 0px' });
     if (!reducedMotion.matches) {
+      document.querySelectorAll('.experience-list, .beyond').forEach(group => {
+        [...group.children].filter(child => child.classList.contains('reveal')).forEach((child, index) => {
+          child.style.setProperty('--reveal-delay', `${Math.min(index * 65, 130)}ms`);
+        });
+      });
       document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
       document.body.classList.add('motion-ready');
     }
+    reducedMotion.addEventListener('change', event => {
+      if (event.matches) {
+        revealObserver.disconnect();
+        document.body.classList.remove('motion-ready');
+      }
+    });
     const navLinks = [...document.querySelectorAll('.desktop-nav a')];
     const sectionObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
