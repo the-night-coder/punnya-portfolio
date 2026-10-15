@@ -52,6 +52,17 @@
 
   if ('IntersectionObserver' in window) {
     // Content stays visible if JavaScript or observers are unavailable.
+    const portraitArt = document.querySelector('.hero-art');
+    const portraitPhoto = portraitArt.querySelector('.portrait-image');
+    const portraitThreshold = 0.15;
+    const portraitObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio >= portraitThreshold && !document.body.classList.contains('intro-active')) {
+          portraitArt.classList.add('visible');
+          portraitObserver.unobserve(portraitPhoto);
+        }
+      });
+    }, { threshold: portraitThreshold, rootMargin: '0px 0px -48px 0px' });
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !document.body.classList.contains('intro-active')) {
@@ -61,10 +72,14 @@
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -15px 0px' });
     document.addEventListener('portfolio:entered', () => {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(element => {
+      document.querySelectorAll('.reveal:not(.hero-art):not(.visible)').forEach(element => {
         revealObserver.unobserve(element);
         revealObserver.observe(element);
       });
+      if (!reducedMotion.matches && !portraitArt.classList.contains('visible')) {
+        portraitObserver.unobserve(portraitPhoto);
+        portraitObserver.observe(portraitPhoto);
+      }
     });
     if (!reducedMotion.matches) {
       document.querySelectorAll('.experience-list, .beyond').forEach(group => {
@@ -72,12 +87,14 @@
           child.style.setProperty('--reveal-delay', `${Math.min(index * 65, 130)}ms`);
         });
       });
-      document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+      document.querySelectorAll('.reveal:not(.hero-art)').forEach(element => revealObserver.observe(element));
+      portraitObserver.observe(portraitPhoto);
       document.body.classList.add('motion-ready');
     }
     reducedMotion.addEventListener('change', event => {
       if (event.matches) {
         revealObserver.disconnect();
+        portraitObserver.disconnect();
         document.body.classList.remove('motion-ready');
       }
     });
